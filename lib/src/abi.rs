@@ -1,8 +1,8 @@
 use derive_more::Display;
-use ethers::types::{Address, I256, U256, Bytes};
-use ethers::utils::keccak256;
-use ethers::abi::Token;
 use ethers::abi::encode;
+use ethers::abi::Token;
+use ethers::types::{Address, I256};
+use ethers::utils::keccak256;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, Serialize, Deserialize,Display)]

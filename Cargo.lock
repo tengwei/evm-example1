@@ -1925,6 +1925,7 @@ name = "fibonacci-lib"
 version = "0.1.0"
 dependencies = [
  "alloy-sol-types",
+ "base64 0.21.7",
  "derive_more 2.0.1",
  "ethers",
  "num-bigint 0.4.6",
