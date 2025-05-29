@@ -37,6 +37,8 @@ fn main() {
     let parsed_data: BlockWitnessCircuit =
         serde_json::from_str(&file_content).expect("JSON解析失败");
 
+
+
     // 打印解析后的数据
     println!("{:?}", parsed_data);
 

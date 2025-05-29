@@ -25,8 +25,10 @@ pub struct BlockWitnessCircuit {
 pub struct UserDataDeltaCircuit {
     #[serde(rename = "accountId")]
     pub account_id: i64,
-    #[serde(rename = "address")]
-    pub address: String,
+    #[serde(rename = "addressBefore")]
+    pub address_before: String,
+    #[serde(rename = "addressAfter")]
+    pub address_after: String,
     #[serde(rename = "stateRootBefore", with = "serde_bytes")]
     pub state_root_before: Vec<u8>,
     #[serde(rename = "stateRootAfter", with = "serde_bytes")]
@@ -61,7 +63,7 @@ pub struct Balance {
     pub asset_name: String,
     #[serde(rename = "balance")]
     pub balance: String,
-    #[serde(rename = "withdraw_amount")]
+    #[serde(rename = "withdrawAmount")]
     pub withdraw_amount: String,
 }
 
@@ -81,8 +83,6 @@ pub struct PositionItem {
     pub position_amount: String,
     #[serde(rename = "entryPrice")]
     pub entry_price: String,
-    #[serde(rename = "positionSide")]
-    pub position_side: String,
     #[serde(rename = "leverage")]
     pub leverage: i64,
     #[serde(rename = "unrealizedPnl")]
