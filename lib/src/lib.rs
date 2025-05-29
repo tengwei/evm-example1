@@ -1,3 +1,6 @@
+pub mod types;
+mod abi;
+
 use std::fs;
 
 use alloy_sol_types::sol;
@@ -10,6 +13,14 @@ sol! {
         uint32 b;
     }
 }
+
+sol! {
+    struct User {
+        address addr;
+        uint256 balance;
+    }
+}
+
 
 /// Computes the Fibonacci sequence starting from `a` and `b` up to the `n`-th iteration.
 /// Returns the last two values in the sequence: (a, b).
