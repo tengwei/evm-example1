@@ -2,8 +2,8 @@ pub mod types;
 mod abi;
 
 use std::fs;
-
 use alloy_sol_types::sol;
+use serde::{Deserialize, Serialize};
 
 sol! {
     /// The public values encoded as a struct that can be easily deserialized inside Solidity.
@@ -18,6 +18,34 @@ sol! {
     struct User {
         address addr;
         uint256 balance;
+    }
+}
+
+sol! {
+    #[derive(Debug, Serialize, Deserialize)]
+    struct Balance {
+        bytes32 assetName;
+        int256 balance;
+        int256 maxWithdrawAmount;
+    }
+    #[derive(Debug, Serialize, Deserialize)]
+    struct PositionItem {
+        int256 positionAmount;
+        int256 entryPrice;
+        int256 leverage; // 用 int256 代替 int64
+        int256 unrealizedPnl;
+        int256 returnOnEquity;
+    }
+    #[derive(Debug, Serialize, Deserialize)]
+    struct Position {
+        bytes32 symbolName;
+        PositionItem[] positionItems;
+    }
+    #[derive(Debug, Serialize, Deserialize)]
+    struct UserData {
+        address userAddress;
+        Balance[] balances;
+        Position[] positions;
     }
 }
 

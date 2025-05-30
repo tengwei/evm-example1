@@ -1,6 +1,7 @@
-use fibonacci_lib::load_elf;
+use fibonacci_lib::{load_elf};
 use pico_sdk::{client::DefaultProverClient, init_logger};
 use std::{env, fs};
+use alloy_sol_types::private::primitives::hex::hex;
 use fibonacci_lib::types::BlockWitnessCircuit;
 use fibonacci_lib::types::Example;
 
@@ -36,6 +37,19 @@ fn main() {
     // 解析JSON内容为结构体
     let parsed_data: BlockWitnessCircuit =
         serde_json::from_str(&file_content).expect("JSON解析失败");
+
+    // let user_data = UserData {
+    //     userAddress: "0x1111111111111111111111111111111111111111".parse().unwrap(),
+    //     // balances:
+    //     // positions:
+    //
+    //     balances: vec![],
+    //     positions: vec![],
+    // };
+    // // 自动支持 ABI 编码
+    // let encoded: Vec<u8> = user_data.abi_encode();
+    // println!("encoded: 0x{}", hex::encode(&encoded));
+
 
 
 

@@ -1,12 +1,10 @@
 use base64::{engine::general_purpose, Engine as _};
-use derive_more::Display;
 use serde::de::Deserializer;
 use serde::ser::Serializer;
 use serde::{Deserialize, Serialize};
 
 
-#[derive(Clone, Debug, Serialize, Deserialize, Display)]
-#[display("{self:?}")]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct BlockWitnessCircuit {
     #[serde(rename = "blockHeight")]
     pub block_height: u64,
@@ -20,8 +18,7 @@ pub struct BlockWitnessCircuit {
     pub state_root_after: Vec<u8>,
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize, Display)]
-#[display("{self:?}")]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct UserDataDeltaCircuit {
     #[serde(rename = "accountId")]
     pub account_id: i64,
@@ -56,8 +53,7 @@ pub struct UserDataDeltaCircuit {
 }
 
 
-#[derive(Clone, Debug, Serialize, Deserialize, Display)]
-#[display("{self:?}")]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Balance {
     #[serde(rename = "assetName")]
     pub asset_name: String,
@@ -67,8 +63,7 @@ pub struct Balance {
     pub withdraw_amount: String,
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize, Display)]
-#[display("{self:?}")]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Position {
     #[serde(rename = "symbolName")]
     pub symbol_name: String,
@@ -76,8 +71,7 @@ pub struct Position {
     pub position_items: Vec<PositionItem>,
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize, Display)]
-#[display("{self:?}")]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PositionItem {
     #[serde(rename = "positionAmount")]
     pub position_amount: String,
@@ -98,16 +92,6 @@ pub struct Example {
     #[serde(rename = "stateRootAfter", with = "serde_bytes")]
     pub state_root_after: Vec<u8>,  // 自动解码 Base64 字符串
 }
-
-// fn serialize_nested_bytes<S>(nested: &Vec<Vec<u8>>, serializer: S) -> Result<S::Ok, S::Error>
-// where
-//     S: serde::Serializer,
-// {
-//     let serialized: Vec<serde_bytes::Bytes> = nested.iter().map(|v| serde_bytes::Bytes::new(v)).collect();
-//     serialized.serialize(serializer)
-//
-//
-// }
 
 fn serialize_nested_bytes<S>(data: &Vec<Vec<u8>>, serializer: S) -> Result<S::Ok, S::Error>
 where
@@ -130,54 +114,3 @@ where
         .map(|s| general_purpose::STANDARD.decode(&s).map_err(serde::de::Error::custom))
         .collect()
 }
-
-
-// fn serialize_balances<S>(balances: &Vec<Balance>, serializer: S) -> Result<S::Ok, S::Error>
-// where
-//     S: serde::Serializer,
-// {
-//     let serialized: Vec<String> = balances.iter().map(|balance| serde_json::to_string(balance).unwrap()).collect();
-//     serialized.serialize(serializer)
-// }
-//
-// fn deserialize_balances<'de, D>(deserializer: D) -> Result<Vec<Balance>, D::Error>
-// where
-//     D: serde::Deserializer<'de>,
-// {
-//     let deserialized: Vec<String> = Deserialize::deserialize(deserializer)?;
-//     deserialized
-//         .into_iter()
-//         .map(|s| serde_json::from_str(&s).map_err(de::Error::custom))
-//         .collect()
-// }
-
-// fn serialize_positions<S>(positions: &Vec<Position>, serializer: S) -> Result<S::Ok, S::Error>
-// where
-//     S: serde::Serializer,
-// {
-//     let serialized: Vec<String> = positions
-//         .iter()
-//         .map(|position| serde_json::to_string(position).unwrap())
-//         .collect();
-//     serialized.serialize(serializer)
-// }
-//
-// fn deserialize_positions<'de, D>(deserializer: D) -> Result<Vec<Position>, D::Error>
-// where
-//     D: Deserializer<'de>,
-// {
-//     let deserialized: Vec<String> = Deserialize::deserialize(deserializer)?;
-//     deserialized
-//         .into_iter()
-//         .map(|s| serde_json::from_str(&s).map_err(de::Error::custom))
-//         .collect()
-// }
-
-
-// fn deserialize_nested_bytes<'de, D>(deserializer: D) -> Result<Vec<Vec<u8>>, D::Error>
-// where
-//     D: serde::Deserializer<'de>,
-// {
-//     let deserialized: Vec<serde_bytes::ByteBuf> = Deserialize::deserialize(deserializer)?;
-//     Ok(deserialized.into_iter().map(|buf| buf.into_vec()).collect())
-// }
