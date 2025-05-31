@@ -5,12 +5,12 @@ mod abi;
 pub mod proof_input;
 
 use std::fs;
-use alloy_primitives::Address;
+use alloy_primitives::{Address, FixedBytes};
 use alloy_sol_types::{sol, SolValue};
 use tiny_keccak::{Hasher, Keccak};
-use crate::abi::CommitmentABI;
-use crate::proof_input::{BalanceABI, BlockWitnessProofInput, PositionABI, UserDataABI};
+use crate::proof_input::{BalanceABI, BlockWitnessProofInput, CommitmentABI, PositionABI, UserDataABI};
 
+const ACCOUNT_MERKLE_LEVELS:usize =32;
 sol! {
     /// The public values encoded as a struct that can be easily deserialized inside Solidity.
     struct PublicValuesStruct {
@@ -28,9 +28,6 @@ sol! {
 }
 
 
-
-
-
 pub fn verify(block_witness: BlockWitnessProofInput) -> () {
     let size = block_witness.user_data_delta_circuit_list.len();
     assert!(compare(block_witness.commitment, keccak256_for_commitment(block_witness.block_height, block_witness.state_root_before, block_witness.state_root_after)));
@@ -39,30 +36,34 @@ pub fn verify(block_witness: BlockWitnessProofInput) -> () {
         //state_root_before must be equal state_root_after
         assert_eq!(block_witness.state_root_before, block_witness.state_root_after, "Mismatch State Root!");
     } else {
+        assert_eq!(block_witness.state_root_before, block_witness.user_data_delta_circuit_list[0].state_root_before, "Mismatch State Root!");
         for user_data in block_witness.user_data_delta_circuit_list.iter() {
-            println!("Account ID: {}", user_data.account_id);
-            println!("Address Before: {:?}", user_data.address_before);
-            println!("Address After: {:?}", user_data.address_after);
-            println!("State Root Before: {:?}", user_data.state_root_before);
-            println!("State Root After: {:?}", user_data.state_root_after);
+            // println!("Account ID: {}", user_data.account_id);
+            // println!("Address Before: {:?}", user_data.address_before);
+            // println!("Address After: {:?}", user_data.address_after);
+            // println!("State Root Before: {:?}", user_data.state_root_before);
+            // println!("State Root After: {:?}", user_data.state_root_after);
 
-            let hash_before = generate_leaf_hash(user_data.address_before, user_data.balances_before, user_data.positions_before);
-            let is_valid_before = verify_sparse_merkle_root(hash_before, user_data.merkle_proofs_before, user_data.state_root_before);
+            let hash_before = generate_leaf_hash(user_data.address_before, user_data.clone().balances_before, user_data.clone().positions_before);
+            let is_valid_before = verify_sparse_merkle_root(user_data.account_id, hash_before, user_data.merkle_proofs_before, user_data.state_root_before);
             assert!(is_valid_before, "Mismatch State Root!");
 
-            let hash_after = generate_leaf_hash(user_data.address_after, user_data.balances_after, user_data.positions_after);
-            let is_valid_after = verify_sparse_merkle_root(hash_after, user_data.merkle_proofs_after, user_data.state_root_after);
+            let hash_after = generate_leaf_hash(user_data.address_after, user_data.clone().balances_after, user_data.clone().positions_after);
+            let is_valid_after = verify_sparse_merkle_root(user_data.account_id, hash_after, user_data.merkle_proofs_after, user_data.state_root_after);
             assert!(is_valid_after, "Mismatch State Root!");
+
+            //todo
         }
+        assert_eq!(block_witness.state_root_after, block_witness.user_data_delta_circuit_list[size - 1].state_root_after, "Mismatch State Root!");
     }
 }
 
-fn keccak256_for_commitment(block_height: u64, state_root_before: Vec<u8>, state_root_after: Vec<u8>) -> [u8; 32] {
+fn keccak256_for_commitment(block_height: u64, state_root_before: [u8; 32], state_root_after: [u8; 32]) -> [u8; 32] {
     // ABI encode
     let encoded = CommitmentABI {
         blockHeight: block_height,
-        stateRootBefore: vec_to_bytes32(state_root_before).into(),
-        stateRootAfter: vec_to_bytes32(state_root_after).into(),
+        stateRootBefore: FixedBytes::from(state_root_before),
+        stateRootAfter: FixedBytes::from(state_root_after),
     }.abi_encode();
 
     // Keccak256 hash
@@ -81,13 +82,25 @@ fn vec_to_bytes32(vec: Vec<u8>) -> [u8; 32] {
     bytes32
 }
 
-fn compare(vec: Vec<u8>, arr: [u8; 32]) -> bool {
+fn vec_to_array(vec: Vec<Vec<u8>>) -> [[u8; 32]; ACCOUNT_MERKLE_LEVELS] {
+    vec.into_iter()
+        .map(|v| {
+            let mut arr = [0u8; 32];
+            let len = v.len().min(32); // 确保不超过 32 字节
+            arr[..len].copy_from_slice(&v[..len]);
+            arr
+        })
+        .collect::<Vec<[u8; 32]>>()
+        .try_into().unwrap()
+}
+
+fn compare(vec: [u8; 32], arr: [u8; 32]) -> bool {
     // Check vec length to avoid panic
     if vec.len() != 32 {
         return false;
     }
     // Compare contents (as_slice converts to &[u8], which automatically supports comparison with [u8; 32])
-    arr == vec[..]
+    arr == vec
 }
 
 fn generate_leaf_hash(address: Address, balances: Vec<BalanceABI>, positions: Vec<PositionABI>) -> [u8; 32] {
@@ -104,10 +117,10 @@ fn generate_leaf_hash(address: Address, balances: Vec<BalanceABI>, positions: Ve
 }
 
 fn verify_sparse_merkle_root(
-    account_id:u64,
+    account_id: i64,
     leaf_hash: [u8; 32],
-    merkle_proofs: Vec<Vec<u8>>,
-    state_root: Vec<u8>,
+    merkle_proofs: [[u8; 32]; ACCOUNT_MERKLE_LEVELS],
+    state_root: [u8; 32],
 ) -> bool {
     let mut current_hash = leaf_hash;
     //todo
@@ -115,16 +128,16 @@ fn verify_sparse_merkle_root(
 
     for (proof_hash, is_right) in merkle_proofs.iter().zip(path.iter()) {
         current_hash = if *is_right {
-            hash_node(vec_to_bytes32(*proof_hash), current_hash)
+            hash_node(proof_hash, &current_hash)
         } else {
             hash_node(&current_hash, proof_hash)
         };
     }
 
-    current_hash == vec_to_bytes32(state_root)
+    current_hash == state_root
 }
 
-fn hash_node(left: &[u8; 32], right: &Vec<u8>) -> [u8; 32] {
+fn hash_node(left: &[u8; 32], right: &[u8; 32]) -> [u8; 32] {
     let mut hasher = Keccak::v256();
     let mut output = [0u8; 32];
     hasher.update(left);
@@ -133,7 +146,7 @@ fn hash_node(left: &[u8; 32], right: &Vec<u8>) -> [u8; 32] {
     output
 }
 
-fn leaf_id_to_path(leaf_id: u64, tree_height: u32) -> Vec<bool> {
+fn leaf_id_to_path(leaf_id: i64, tree_height: u32) -> Vec<bool> {
     let mut path = Vec::new();
     for i in 0..tree_height {
         path.push((leaf_id & (1 << i)) != 0);

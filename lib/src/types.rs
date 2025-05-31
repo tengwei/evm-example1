@@ -5,6 +5,7 @@ use serde::de::Deserializer;
 use serde::ser::Serializer;
 use serde::{Deserialize, Serialize};
 use crate::proof_input::{BalanceABI, BlockWitnessProofInput, PositionABI, PositionItemABI, UserDataDeltaProofInput};
+use crate::{vec_to_array, vec_to_bytes32};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct BlockWitnessCircuit {
@@ -168,8 +169,8 @@ impl From<BlockWitnessCircuit> for BlockWitnessProofInput {
                     account_id: delta.account_id,
                     address_before: Address::from_str(&delta.address_before).unwrap_or_default(),
                     address_after: Address::from_str(&delta.address_after).unwrap_or_default(),
-                    state_root_before: delta.state_root_before,
-                    state_root_after: delta.state_root_after,
+                    state_root_before: vec_to_bytes32(delta.state_root_before),
+                    state_root_after: vec_to_bytes32(delta.state_root_after),
                     balances_before: delta
                         .balances_before
                         .into_iter()
@@ -190,13 +191,13 @@ impl From<BlockWitnessCircuit> for BlockWitnessProofInput {
                         .into_iter()
                         .map(|position| position.into())
                         .collect(),
-                    merkle_proofs_before: delta.merkle_proofs_before,
-                    merkle_proofs_after: delta.merkle_proofs_after,
+                    merkle_proofs_before: vec_to_array(delta.merkle_proofs_before),
+                    merkle_proofs_after: vec_to_array(delta.merkle_proofs_after),
                 })
                 .collect(),
-            commitment: circuit.commitment,
-            state_root_before: circuit.state_root_before,
-            state_root_after: circuit.state_root_after,
+            commitment: vec_to_bytes32(circuit.commitment),
+            state_root_before: vec_to_bytes32(circuit.state_root_before),
+            state_root_after: vec_to_bytes32(circuit.state_root_after),
         }
     }
 }

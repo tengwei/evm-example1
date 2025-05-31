@@ -1,5 +1,5 @@
-use alloy_sol_types::{sol, SolValue};
-use tiny_keccak::{Hasher, Keccak};
+// use alloy_sol_types::{sol};
+// use tiny_keccak::{Hasher, Keccak};
 // use derive_more::Display;
 // use ethers::abi::encode;
 // use ethers::abi::Token;
@@ -89,10 +89,3 @@ use tiny_keccak::{Hasher, Keccak};
 //     }
 // }
 
-sol! {
-    struct CommitmentABI {
-        uint64 blockHeight;
-        bytes32 stateRootBefore;
-        bytes32 stateRootAfter;
-    }
-}

@@ -680,7 +680,7 @@ checksum = "e16d2d3311acee920a9eb8d33b8cbc1787ce4a264e85f964c2404b969bdcd487"
 name = "app"
 version = "0.1.0"
 dependencies = [
- "alloy-sol-types 0.8.25",
+ "alloy-sol-types 0.7.7",
  "fibonacci-lib",
  "pico-sdk",
 ]
