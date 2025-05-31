@@ -1,9 +1,8 @@
 use fibonacci_lib::{load_elf};
 use pico_sdk::{client::DefaultProverClient, init_logger};
 use std::{env, fs};
-use alloy_sol_types::private::primitives::hex::hex;
 use fibonacci_lib::types::BlockWitnessCircuit;
-use fibonacci_lib::types::Example;
+use fibonacci_lib::proof_input::BlockWitnessProofInput;
 
 
 fn main() {
@@ -18,17 +17,17 @@ fn main() {
     // Initialize new stdin
     let mut stdin_builder = client.new_stdin_builder();
 
-    let json_data = r#"{
-        "stateRootBefore": "c2Rmc2RmZHM=",
-        "stateRootAfter": "c2Rmc2RmZHM="
-    }"#;
-
-    let result: Example = serde_json::from_str(json_data).unwrap();
-    println!("{:?}", result);
+    // let json_data = r#"{
+    //     "stateRootBefore": "c2Rmc2RmZHM=",
+    //     "stateRootAfter": "c2Rmc2RmZHM="
+    // }"#;
+    //
+    // let result: Example = serde_json::from_str(json_data).unwrap();
+    // println!("{:?}", result);
 
     // 打印解码后的字节数组
-    println!("stateRootBefore: {:?}", result.state_root_before);
-    println!("stateRootAfter: {:?}", result.state_root_after);
+    // println!("stateRootBefore: {:?}", result.state_root_before);
+    // println!("stateRootAfter: {:?}", result.state_root_after);
 
 
     // 读取JSON文件内容
@@ -37,6 +36,9 @@ fn main() {
     // 解析JSON内容为结构体
     let parsed_data: BlockWitnessCircuit =
         serde_json::from_str(&file_content).expect("JSON解析失败");
+
+    let proof_input: BlockWitnessProofInput = parsed_data.into();
+
 
     // let user_data = UserData {
     //     userAddress: "0x1111111111111111111111111111111111111111".parse().unwrap(),
@@ -51,14 +53,15 @@ fn main() {
     // println!("encoded: 0x{}", hex::encode(&encoded));
 
 
-
-
     // 打印解析后的数据
-    println!("{:?}", parsed_data);
+    // println!("{:?}", parsed_data);
 
     // Set up input
-    let n = 10u32;
-    stdin_builder.write(&n);
+    // let n = 10u32;
+    // stdin_builder.write(&n);
+
+    stdin_builder.write(&proof_input);
+
 
     // Set up output path
     let current_dir = env::current_dir().expect("Failed to get current directory");

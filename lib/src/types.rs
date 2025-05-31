@@ -1,8 +1,10 @@
+use std::str::FromStr;
+use alloy_primitives::{Address, FixedBytes};
 use base64::{engine::general_purpose, Engine as _};
 use serde::de::Deserializer;
 use serde::ser::Serializer;
 use serde::{Deserialize, Serialize};
-
+use crate::proof_input::{BalanceABI, BlockWitnessProofInput, PositionABI, PositionItemABI, UserDataDeltaProofInput};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct BlockWitnessCircuit {
@@ -113,4 +115,88 @@ where
         .into_iter()
         .map(|s| general_purpose::STANDARD.decode(&s).map_err(serde::de::Error::custom))
         .collect()
+}
+
+
+impl From<Balance> for BalanceABI {
+    fn from(balance: Balance) -> Self {
+        BalanceABI {
+            assetName: {
+                let mut name = [0u8; 32];
+                let bytes = balance.asset_name.as_bytes();
+                name[..bytes.len()].copy_from_slice(bytes);
+                FixedBytes::from(name)
+            },
+            balance: balance.balance.parse().unwrap_or_default(),
+            maxWithdrawAmount: balance.withdraw_amount.parse().unwrap_or_default(),
+        }
+    }
+}
+
+impl From<Position> for PositionABI {
+    fn from(position: Position) -> Self {
+        PositionABI {
+            symbolName: {
+                let mut name = [0u8; 32];
+                let bytes = position.symbol_name.as_bytes();
+                name[..bytes.len()].copy_from_slice(bytes);
+                FixedBytes::from(name)
+            },
+            positionItems: position
+                .position_items
+                .into_iter()
+                .map(|item| PositionItemABI {
+                    positionAmount: item.position_amount.parse().unwrap_or_default(),
+                    entryPrice: item.entry_price.parse().unwrap_or_default(),
+                    leverage: item.leverage,
+                    unrealizedPnl: item.unrealized_pnl.parse().unwrap_or_default(),
+                    returnOnEquity: item.return_on_equity.parse().unwrap_or_default(),
+                })
+                .collect(),
+        }
+    }
+}
+
+impl From<BlockWitnessCircuit> for BlockWitnessProofInput {
+    fn from(circuit: BlockWitnessCircuit) -> Self {
+        BlockWitnessProofInput {
+            block_height: circuit.block_height,
+            user_data_delta_circuit_list: circuit
+                .user_data_delta_circuit_list
+                .into_iter()
+                .map(|delta| UserDataDeltaProofInput {
+                    account_id: delta.account_id,
+                    address_before: Address::from_str(&delta.address_before).unwrap_or_default(),
+                    address_after: Address::from_str(&delta.address_after).unwrap_or_default(),
+                    state_root_before: delta.state_root_before,
+                    state_root_after: delta.state_root_after,
+                    balances_before: delta
+                        .balances_before
+                        .into_iter()
+                        .map(|balance| balance.into())
+                        .collect(),
+                    balances_after: delta
+                        .balances_after
+                        .into_iter()
+                        .map(|balance| balance.into())
+                        .collect(),
+                    positions_before: delta
+                        .positions_before
+                        .into_iter()
+                        .map(|position| position.into())
+                        .collect(),
+                    positions_after: delta
+                        .positions_after
+                        .into_iter()
+                        .map(|position| position.into())
+                        .collect(),
+                    merkle_proofs_before: delta.merkle_proofs_before,
+                    merkle_proofs_after: delta.merkle_proofs_after,
+                })
+                .collect(),
+            commitment: circuit.commitment,
+            state_root_before: circuit.state_root_before,
+            state_root_after: circuit.state_root_after,
+        }
+    }
 }
