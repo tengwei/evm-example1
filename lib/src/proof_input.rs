@@ -1,15 +1,16 @@
-use alloy_primitives::Address;
+use alloy_primitives::{Address, I256};
 use alloy_sol_types::sol;
-use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Deserializer, Serialize};
 use crate::ACCOUNT_MERKLE_LEVELS;
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct BlockWitnessProofInput {
     pub block_height: u64,
     pub user_data_delta_circuit_list: Vec<UserDataDeltaProofInput>,
     pub commitment: [u8; 32],
     pub state_root_before: [u8; 32],
     pub state_root_after: [u8; 32],
+    pub deposit_success_height: u64,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -31,15 +32,21 @@ sol! {
     #[derive(Debug, Serialize, Deserialize)]
     struct BalanceABI {
         bytes32 assetName;
+        #[serde(deserialize_with = "deserialize_i256")]
         int256 balance;
+        #[serde(deserialize_with = "deserialize_i256")]
         int256 maxWithdrawAmount;
     }
     #[derive(Debug, Serialize, Deserialize)]
     struct PositionItemABI {
+        #[serde(deserialize_with = "deserialize_i256")]
         int256 positionAmount;
+        #[serde(deserialize_with = "deserialize_i256")]
         int256 entryPrice;
-        int64 leverage;
+        uint64 leverage;
+        #[serde(deserialize_with = "deserialize_i256")]
         int256 unrealizedPnl;
+        #[serde(deserialize_with = "deserialize_i256")]
         int256 returnOnEquity;
     }
     #[derive(Debug, Serialize, Deserialize)]
@@ -57,10 +64,19 @@ sol! {
 
 sol! {
     struct CommitmentABI {
+        uint64 depositSuccessHeight;
         uint64 blockHeight;
         bytes32 stateRootBefore;
         bytes32 stateRootAfter;
     }
+}
+
+fn deserialize_i256<'de, D>(deserializer: D) -> Result<I256, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    let s = String::deserialize(deserializer)?;
+    s.parse::<I256>().map_err(serde::de::Error::custom)
 }
 
 

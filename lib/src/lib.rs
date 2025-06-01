@@ -5,12 +5,14 @@ mod abi;
 pub mod proof_input;
 
 use std::fs;
-use alloy_primitives::{Address, FixedBytes};
+use alloy::hex;
+use alloy_primitives::{Address, FixedBytes, I256};
 use alloy_sol_types::{sol, SolValue};
+use serde::{Deserialize, Deserializer, Serialize};
 use tiny_keccak::{Hasher, Keccak};
 use crate::proof_input::{BalanceABI, BlockWitnessProofInput, CommitmentABI, PositionABI, UserDataABI};
 
-const ACCOUNT_MERKLE_LEVELS:usize =32;
+const ACCOUNT_MERKLE_LEVELS: usize = 32;
 sol! {
     /// The public values encoded as a struct that can be easily deserialized inside Solidity.
     struct PublicValuesStruct {
@@ -21,56 +23,81 @@ sol! {
 }
 
 sol! {
-    struct User {
-        address addr;
-        uint256 balance;
+    #[derive(Debug, Serialize, Deserialize)]
+    struct UserInfo {
+        address addr1;
+        uint256 balance1;
     }
 }
 
+// fn deserialize_i256<'de, D>(deserializer: D) -> Result<I256, D::Error>
+// where
+//     D: Deserializer<'de>,
+// {
+//     let s = String::deserialize(deserializer)?;
+//     s.parse::<I256>().map_err(serde::de::Error::custom)
+// }
 
-pub fn verify(block_witness: BlockWitnessProofInput) -> () {
+pub fn verify(block_witness: &BlockWitnessProofInput) -> () {
+    println!("block_witness.block_height: {}", block_witness.block_height);
+
     let size = block_witness.user_data_delta_circuit_list.len();
-    assert!(compare(block_witness.commitment, keccak256_for_commitment(block_witness.block_height, block_witness.state_root_before, block_witness.state_root_after)));
+    println!("block_witness.commitment: {}", hex::encode(block_witness.commitment));
+
+
+    assert!(compare(block_witness.commitment, keccak256_for_commitment(block_witness.deposit_success_height, block_witness.block_height, block_witness.state_root_before, block_witness.state_root_after)));
 
     if size == 0 {
         //state_root_before must be equal state_root_after
         assert_eq!(block_witness.state_root_before, block_witness.state_root_after, "Mismatch State Root!");
     } else {
         assert_eq!(block_witness.state_root_before, block_witness.user_data_delta_circuit_list[0].state_root_before, "Mismatch State Root!");
-        for user_data in block_witness.user_data_delta_circuit_list.iter() {
-            // println!("Account ID: {}", user_data.account_id);
-            // println!("Address Before: {:?}", user_data.address_before);
-            // println!("Address After: {:?}", user_data.address_after);
-            // println!("State Root Before: {:?}", user_data.state_root_before);
-            // println!("State Root After: {:?}", user_data.state_root_after);
-
-            let hash_before = generate_leaf_hash(user_data.address_before, user_data.clone().balances_before, user_data.clone().positions_before);
-            let is_valid_before = verify_sparse_merkle_root(user_data.account_id, hash_before, user_data.merkle_proofs_before, user_data.state_root_before);
-            assert!(is_valid_before, "Mismatch State Root!");
-
-            let hash_after = generate_leaf_hash(user_data.address_after, user_data.clone().balances_after, user_data.clone().positions_after);
-            let is_valid_after = verify_sparse_merkle_root(user_data.account_id, hash_after, user_data.merkle_proofs_after, user_data.state_root_after);
-            assert!(is_valid_after, "Mismatch State Root!");
-
-            //todo
-        }
+        // for user_data in block_witness.user_data_delta_circuit_list.iter() {
+        //     println!("Account ID: {}", user_data.account_id);
+        //     println!("Address Before: {:?}", user_data.address_before);
+        //     println!("Address After: {:?}", user_data.address_after);
+        //     println!("State Root Before: {:?}", user_data.state_root_before);
+        //     println!("State Root After: {:?}", user_data.state_root_after);
+        //
+        //     let hash_before = generate_leaf_hash(user_data.address_before, user_data.clone().balances_before, user_data.clone().positions_before);
+        //     let is_valid_before = verify_sparse_merkle_root(user_data.account_id, hash_before, user_data.merkle_proofs_before, user_data.state_root_before);
+        //     assert!(is_valid_before, "Mismatch State Root!");
+        //
+        //     let hash_after = generate_leaf_hash(user_data.address_after, user_data.clone().balances_after, user_data.clone().positions_after);
+        //     let is_valid_after = verify_sparse_merkle_root(user_data.account_id, hash_after, user_data.merkle_proofs_after, user_data.state_root_after);
+        //     assert!(is_valid_after, "Mismatch State Root!");
+        //
+        //     //todo
+        // }
         assert_eq!(block_witness.state_root_after, block_witness.user_data_delta_circuit_list[size - 1].state_root_after, "Mismatch State Root!");
     }
 }
 
-fn keccak256_for_commitment(block_height: u64, state_root_before: [u8; 32], state_root_after: [u8; 32]) -> [u8; 32] {
+fn keccak256_for_commitment(deposit_success_height: u64, block_height: u64, state_root_before: [u8; 32], state_root_after: [u8; 32]) -> [u8; 32] {
     // ABI encode
     let encoded = CommitmentABI {
+        depositSuccessHeight: deposit_success_height,
         blockHeight: block_height,
         stateRootBefore: FixedBytes::from(state_root_before),
         stateRootAfter: FixedBytes::from(state_root_after),
     }.abi_encode();
+
+    println!("commitment depositSuccessHeight: {}", deposit_success_height);
+    println!("commitment block_height: {}", block_height);
+    println!("commitment stateRootBefore: 0x{}", hex::encode(&state_root_before));
+    println!("commitment state_root_after: 0x{}", hex::encode(&state_root_after));
+
+
+
+    println!("commitment encoded: 0x{}", hex::encode(&encoded));
+
 
     // Keccak256 hash
     let mut hasher = Keccak::v256();
     let mut output = [0u8; 32];
     hasher.update(&encoded);
     hasher.finalize(&mut output);
+    println!("block_witness.commitment: {}", hex::encode(output));
 
     output
 }

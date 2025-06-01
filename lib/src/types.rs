@@ -19,6 +19,8 @@ pub struct BlockWitnessCircuit {
     pub state_root_before: Vec<u8>,
     #[serde(rename = "stateRootAfter", with = "serde_bytes")]
     pub state_root_after: Vec<u8>,
+    #[serde(rename = "depositSuccessHeight")]
+    pub deposit_success_height: u64,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -81,7 +83,7 @@ pub struct PositionItem {
     #[serde(rename = "entryPrice")]
     pub entry_price: String,
     #[serde(rename = "leverage")]
-    pub leverage: i64,
+    pub leverage: u64,
     #[serde(rename = "unrealizedPnl")]
     pub unrealized_pnl: String,
     #[serde(rename = "returnOnEquity")]
@@ -198,6 +200,7 @@ impl From<BlockWitnessCircuit> for BlockWitnessProofInput {
             commitment: vec_to_bytes32(circuit.commitment),
             state_root_before: vec_to_bytes32(circuit.state_root_before),
             state_root_after: vec_to_bytes32(circuit.state_root_after),
+            deposit_success_height:circuit.deposit_success_height
         }
     }
 }
