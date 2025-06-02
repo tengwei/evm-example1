@@ -1,3 +1,5 @@
 /target
 /witness
 ./witness
+./lib/forge-std
+/lib/forge-std
