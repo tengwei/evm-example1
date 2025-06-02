@@ -7,8 +7,11 @@ use crate::ACCOUNT_MERKLE_LEVELS;
 pub struct BlockWitnessProofInput {
     pub block_height: u64,
     pub user_data_delta_circuit_list: Vec<UserDataDeltaProofInput>,
+    #[serde(deserialize_with = "deserialize_fixed_array")]
     pub commitment: [u8; 32],
+    #[serde(deserialize_with = "deserialize_fixed_array")]
     pub state_root_before: [u8; 32],
+    #[serde(deserialize_with = "deserialize_fixed_array")]
     pub state_root_after: [u8; 32],
     pub deposit_success_height: u64,
 }
@@ -18,7 +21,9 @@ pub struct UserDataDeltaProofInput {
     pub account_id: i64,
     pub address_before: Address,
     pub address_after: Address,
+    #[serde(deserialize_with = "deserialize_fixed_array")]
     pub state_root_before: [u8; 32],
+    #[serde(deserialize_with = "deserialize_fixed_array")]
     pub state_root_after: [u8; 32],
     pub balances_before: Vec<BalanceABI>,
     pub balances_after: Vec<BalanceABI>,
@@ -77,6 +82,14 @@ where
 {
     let s = String::deserialize(deserializer)?;
     s.parse::<I256>().map_err(serde::de::Error::custom)
+}
+
+fn deserialize_fixed_array<'de, D, const N: usize>(deserializer: D) -> Result<[u8; N], D::Error>
+where
+    D: Deserializer<'de>,
+{
+    let vec: Vec<u8> = Deserialize::deserialize(deserializer)?;
+    vec.try_into().map_err(|_| serde::de::Error::custom("could not convert slice to array"))
 }
 
 

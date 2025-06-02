@@ -589,6 +589,7 @@ dependencies = [
  "alloy-sol-types",
  "fibonacci-lib",
  "pico-sdk",
+ "serde_json",
 ]
 
 [[package]]

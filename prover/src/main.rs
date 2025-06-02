@@ -44,13 +44,13 @@ fn main() {
     let parsed_data: BlockWitnessCircuit =
         serde_json::from_str(&file_content).expect("JSON解析失败");
 
-    println!("parsed_data stateRootBefore: 0x{}", hex::encode(&parsed_data.state_root_before));
-    println!("parsed_data state_root_after: 0x{}", hex::encode(&parsed_data.state_root_after));
+    // println!("parsed_data stateRootBefore: 0x{}", hex::encode(&parsed_data.state_root_before));
+    // println!("parsed_data state_root_after: 0x{}", hex::encode(&parsed_data.state_root_after));
 
 
     let proof_input: BlockWitnessProofInput = parsed_data.into();
 
-    verify(&proof_input);
+    // verify(&proof_input);
 
     // let proof_input = BlockWitnessProofInput {
     //     block_height: 123,
@@ -60,21 +60,25 @@ fn main() {
     //     state_root_after: [0u8; 32],
     // };
 
-    let json_data = r#"{
-    "block_height": 123,
-    "user_data_delta_circuit_list": [],
-    "commitment": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    "state_root_before": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    "state_root_after": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-}"#;
+//     let json_data = r#"{
+//     "block_height": 123,
+//     "user_data_delta_circuit_list": [],
+//     "commitment": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     "state_root_before": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     "state_root_after": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+// }"#;
 
     // 序列化为 JSON 字符串
-    let serialized = serde_json::to_string(&proof_input).expect("序列化失败");
+    let serialized = serde_json::to_vec(&proof_input).expect("序列化失败");
     // println!("Serialized: {}", serialized);
 
     // 反序列化为结构体
-    let deserialized: BlockWitnessProofInput = serde_json::from_str(&*serialized).expect("反序列化失败");
-    println!("deserialized.block_height: {:?}", deserialized.user_data_delta_circuit_list[1].balances_after[0].balance);
+    // let deserialized: BlockWitnessProofInput = serde_json::from_str(&*serialized).expect("反序列化失败");
+    // verify(&deserialized);
+    //
+    // println!("deserialized success");
+
+    // println!("deserialized.block_height: {:?}", deserialized.user_data_delta_circuit_list[1].balances_after[0].balance);
 
 
     let user_info = UserInfo {
@@ -85,25 +89,33 @@ fn main() {
         balance1: 1.try_into().unwrap(),
     };
     // 自动支持 ABI 编码
-    let encoded: Vec<u8> = user_info.abi_encode();
-    println!("encoded: 0x{}", hex::encode(&encoded));
+    // let encoded: Vec<u8> = user_info.abi_encode();
+    // println!("encoded: 0x{}", hex::encode(&encoded));
+    //
+    // let mut hasher = Keccak::v256();
+    // let mut output = [0u8; 32];
+    // hasher.update(&encoded);
+    // hasher.finalize(&mut output);
+    // println!("Keccak: 0x{}", hex::encode(&output));
+    println!("stdin_builder.write_slice");
 
-    let mut hasher = Keccak::v256();
-    let mut output = [0u8; 32];
-    hasher.update(&encoded);
-    hasher.finalize(&mut output);
-    println!("Keccak: 0x{}", hex::encode(&output));
+    stdin_builder.write_slice(&serialized.as_ref());
+    // stdin_builder.write(&proof_input);
 
-    stdin_builder.write(&user_info);
+    // stdin_builder.write(&user_info);
+
+
+
+
     // 打印解析后的数据
     // println!("{:?}", parsed_data);
 
     // Set up input
-    let n = 10u32;
-    stdin_builder.write(&deserialized);
+    // let n = 10u32;
+    // stdin_builder.write(&deserialized);
 
 
-    stdin_builder.write(&n);
+    // stdin_builder.write(&n);
 
     // stdin_builder.write(&proof_input);
 
