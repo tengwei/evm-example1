@@ -57,7 +57,7 @@ fn main() {
 
 
 
-    // verify(&proof_input);
+    verify(&proof_input);
 
     // let proof_input = BlockWitnessProofInput {
     //     block_height: 123,
@@ -76,11 +76,11 @@ fn main() {
     // }"#;
 
     // 序列化为 JSON 字符串
-    let serialized = serde_json::to_string(&proof_input).expect("序列化失败");
+    // let serialized = serde_json::to_string(&proof_input).expect("序列化失败");
     // println!("Serialized: {}", serialized);
 
     // 反序列化为结构体
-    let deserialized: BlockWitnessProofInput = serde_json::from_str(&serialized).expect("反序列化失败");
+    // let deserialized: BlockWitnessProofInput = serde_json::from_str(&serialized).expect("反序列化失败");
     // verify(&deserialized);
     //
     // println!("deserialized success");
@@ -104,7 +104,7 @@ fn main() {
     // hasher.update(&encoded);
     // hasher.finalize(&mut output);
     // println!("Keccak: 0x{}", hex::encode(&output));
-    println!("stdin_builder.write_slice");
+    // println!("stdin_builder.write_slice");
 
     // stdin_builder.write_slice(&serialized.as_ref());
     // stdin_builder.write(&proof_input);

@@ -29,7 +29,7 @@ pub fn main() {
     // println!("test111111: {}", user_info.balance1);
     println!("verify start");
 
-    // verify(&proof_input);
+    verify(&proof_input);
 
 
     // let n: u32 = read_as();

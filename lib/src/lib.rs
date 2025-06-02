@@ -58,7 +58,7 @@ sol! {
 // }
 
 pub fn verify(block_witness: &BlockWitnessProofInput) -> () {
-    println!("block_witness.block_height: {}", block_witness.block_height);
+    println!("verify block height: {}", block_witness.block_height);
 
     let size = block_witness.user_data_delta_circuit_list.len();
     // let size = 1;
@@ -179,7 +179,7 @@ fn verify_sparse_merkle_root(
     let mut current_hash = leaf_hash;
     //todo
     let path = leaf_id_to_path(account_id);
-    println!("path: {:?}", path);
+    // println!("path: {:?}", path);
 
 
     // for merkle_proof in merkle_proofs {
