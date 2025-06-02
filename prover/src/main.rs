@@ -1,4 +1,4 @@
-use fibonacci_lib::{load_elf, verify, UserInfo};
+use fibonacci_lib::{load_elf, verify, PublicValuesStruct, UserInfo};
 use pico_sdk::{client::DefaultProverClient, init_logger};
 use std::{env, fs};
 use alloy::hex;
@@ -44,11 +44,18 @@ fn main() {
     let parsed_data: BlockWitnessCircuit =
         serde_json::from_str(&file_content).expect("JSON解析失败");
 
-    // println!("parsed_data stateRootBefore: 0x{}", hex::encode(&parsed_data.state_root_before));
-    // println!("parsed_data state_root_after: 0x{}", hex::encode(&parsed_data.state_root_after));
+    println!("parsed_data stateRootBefore: 0x{}", hex::encode(&parsed_data.state_root_before));
+    println!("parsed_data state_root_after: 0x{}", hex::encode(&parsed_data.state_root_after));
 
 
     let proof_input: BlockWitnessProofInput = parsed_data.into();
+
+    println!("parsed_data stateRootBefore: 0x{}", hex::encode(&proof_input.state_root_before));
+    println!("parsed_data stateRootBefore: 0x{}", hex::encode(&proof_input.state_root_before));
+    println!("parsed_data state_root_after: 0x{}", hex::encode(&proof_input.state_root_after));
+
+
+
 
     // verify(&proof_input);
 
@@ -69,11 +76,11 @@ fn main() {
     // }"#;
 
     // 序列化为 JSON 字符串
-    let serialized = serde_json::to_vec(&proof_input).expect("序列化失败");
+    let serialized = serde_json::to_string(&proof_input).expect("序列化失败");
     // println!("Serialized: {}", serialized);
 
     // 反序列化为结构体
-    // let deserialized: BlockWitnessProofInput = serde_json::from_str(&*serialized).expect("反序列化失败");
+    let deserialized: BlockWitnessProofInput = serde_json::from_str(&serialized).expect("反序列化失败");
     // verify(&deserialized);
     //
     // println!("deserialized success");
@@ -81,13 +88,13 @@ fn main() {
     // println!("deserialized.block_height: {:?}", deserialized.user_data_delta_circuit_list[1].balances_after[0].balance);
 
 
-    let user_info = UserInfo {
-        addr1: "0x1111111111111111111111111111111111111111".parse().unwrap(),
-        // balances:
-        // positions:
-
-        balance1: 1.try_into().unwrap(),
-    };
+    // let user_info = UserInfo {
+    //     addr1: "0x1111111111111111111111111111111111111111".parse().unwrap(),
+    //     // balances:
+    //     // positions:
+    //
+    //     balance1: 1.try_into().unwrap(),
+    // };
     // 自动支持 ABI 编码
     // let encoded: Vec<u8> = user_info.abi_encode();
     // println!("encoded: 0x{}", hex::encode(&encoded));
@@ -115,12 +122,14 @@ fn main() {
 
     // stdin_builder.write(&n);
 
-    // stdin_builder.write(&proof_input);
+    stdin_builder.write(&proof_input);
 
 
     // Set up output path
     let current_dir = env::current_dir().expect("Failed to get current directory");
-    let output_path = current_dir.join(format!("{}{}", "../contracts/test_data/", proof_input.block_height));
+    // let output_path = current_dir.join(format!("{}{}", "../contracts/test_data/", proof_input.block_height));
+    let output_path = current_dir.join( "../contracts/test_data/");
+
 
     fs::create_dir_all(&output_path).expect("Failed to create directory");
 
@@ -128,9 +137,46 @@ fn main() {
     // Set up groth16 verifier and generate pico proof
     // The first parameter `need_setup = true` ensures the Groth16 verifier is set up,
     // but this setup is required only once.
-    client
-        .prove_evm(stdin_builder, false, output_path.clone(), "kb")
-        .expect("Failed to generate evm proof");
+    // client
+    //     .prove_evm(stdin_builder, false, output_path.clone(), "kb")
+    //     .expect("Failed to generate evm proof");
+
+    // Generate proof
+    let proof = client
+        .prove_fast(stdin_builder)
+        .expect("Failed to generate proof");
+
+    // client
+    //     .emulate(stdin_builder);
+
+    // Decodes public values from the proof's public value stream.
+    let public_buffer = proof.pv_stream.unwrap();
+    //
+    // // Deserialize public_buffer into PublicValuesStruct
+    let public_values: PublicValuesStruct =
+        bincode::deserialize(&public_buffer).expect("Failed to deserialize");
+
+    // let public_values: PublicValuesStruct =
+    //     serde_json::from_slice(&public_buffer).expect("Failed to deserialize");
+
+    // let deserialized: Example = serde_json::from_str(json_data).expect("反序列化失败");
+
+    // // Verify the public values
+    verify_public_values(&public_values);
+}
+
+/// Verifies that the computed Fibonacci values match the public values.
+fn verify_public_values(public_values: &PublicValuesStruct) {
+    println!(
+        "Public value depositSuccessHeight: {:?}, blockHeight: {:?}, stateRootBefore: {:?},stateRootAfter: {:?}", public_values.depositSuccessHeight, public_values.blockHeight, public_values.stateRootBefore, public_values.stateRootAfter
+    );
+
+    // Compute Fibonacci values locally
+    // let (result_a, result_b) = verify();
+
+    // Assert that the computed values match the public values
+    // assert_eq!(result_a, public_values.a, "Mismatch in value 'a'");
+    // assert_eq!(result_b, public_values.b, "Mismatch in value 'b'");
 }
 
 

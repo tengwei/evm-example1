@@ -1,7 +1,6 @@
 #![feature(portable_simd)]
 
 pub mod types;
-mod abi;
 pub mod proof_input;
 
 use std::fs;
@@ -24,7 +23,7 @@ const ACCOUNT_MERKLE_LEVELS: usize = 32;
 
 sol! {
     //     /// The public values encoded as a struct that can be easily deserialized inside Solidity.
-
+    #[derive(Debug, Serialize, Deserialize)]
     struct PublicValuesStruct {
         uint64 depositSuccessHeight;
         uint64 blockHeight;
