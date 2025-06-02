@@ -56,7 +56,7 @@ sol! {
     }
     #[derive(Debug, Serialize, Deserialize)]
     struct UserDataABI {
-        address userAddress;
+        address address;
         BalanceABI[] balances;
         PositionABI[] positions;
     }

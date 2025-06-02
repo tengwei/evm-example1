@@ -6,7 +6,7 @@ pub mod proof_input;
 
 use std::fs;
 use alloy::hex;
-use alloy_primitives::{Address, FixedBytes, I256};
+use alloy_primitives::{address, Address, FixedBytes, I256};
 use alloy_sol_types::{sol, SolValue};
 use serde::{Deserialize, Deserializer, Serialize};
 use tiny_keccak::{Hasher, Keccak};
@@ -27,6 +27,15 @@ sol! {
     struct UserInfo {
         address addr1;
         uint256 balance1;
+    }
+}
+
+sol! {
+    #[derive(Debug, Serialize, Deserialize)]
+    struct UserInfo1 {
+        address addr1;
+        BalanceABI[] balances;
+        PositionABI[] positions;
     }
 }
 
@@ -52,30 +61,32 @@ pub fn verify(block_witness: &BlockWitnessProofInput) -> () {
         assert_eq!(block_witness.state_root_before, block_witness.state_root_after, "Mismatch State Root!");
     } else {
         assert_eq!(block_witness.state_root_before, block_witness.user_data_delta_circuit_list[0].state_root_before, "Mismatch State Root!");
-        // for user_data in block_witness.user_data_delta_circuit_list.iter() {
-        //     println!("Account ID: {}", user_data.account_id);
-        //     println!("Address Before: {:?}", user_data.address_before);
-        //     println!("Address After: {:?}", user_data.address_after);
-        //     println!("State Root Before: {:?}", user_data.state_root_before);
-        //     println!("State Root After: {:?}", user_data.state_root_after);
-        //
-        //     let hash_before = generate_leaf_hash(user_data.address_before, user_data.clone().balances_before, user_data.clone().positions_before);
-        //     let is_valid_before = verify_sparse_merkle_root(user_data.account_id, hash_before, user_data.merkle_proofs_before, user_data.state_root_before);
-        //     assert!(is_valid_before, "Mismatch State Root!");
-        //
-        //     let hash_after = generate_leaf_hash(user_data.address_after, user_data.clone().balances_after, user_data.clone().positions_after);
-        //     let is_valid_after = verify_sparse_merkle_root(user_data.account_id, hash_after, user_data.merkle_proofs_after, user_data.state_root_after);
-        //     assert!(is_valid_after, "Mismatch State Root!");
-        //
-        //     //todo
-        // }
+        for user_data in block_witness.user_data_delta_circuit_list.iter() {
+            println!("Account ID: {}", user_data.account_id);
+            println!("Address Before: {:?}", user_data.address_before);
+            println!("Address After: {:?}", user_data.address_after);
+            println!("State Root Before: {:?}", user_data.state_root_before);
+            println!("State Root After: {:?}", user_data.state_root_after);
+
+            let hash_before = generate_leaf_hash(user_data.address_before, user_data.clone().balances_before, user_data.clone().positions_before);
+            let is_valid_before = verify_sparse_merkle_root(user_data.account_id, hash_before, user_data.merkle_proofs_before, user_data.state_root_before);
+            assert!(is_valid_before, "Mismatch State Root!");
+
+            let hash_after = generate_leaf_hash(user_data.address_after, user_data.clone().balances_after, user_data.clone().positions_after);
+            let is_valid_after = verify_sparse_merkle_root(user_data.account_id, hash_after, user_data.merkle_proofs_after, user_data.state_root_after);
+            assert!(is_valid_after, "Mismatch State Root!");
+            println!("verify success Account ID: {}", user_data.account_id);
+
+            //todo
+        }
         assert_eq!(block_witness.state_root_after, block_witness.user_data_delta_circuit_list[size - 1].state_root_after, "Mismatch State Root!");
     }
+    println!("verify success");
 }
 
 fn keccak256_for_commitment(deposit_success_height: u64, block_height: u64, state_root_before: [u8; 32], state_root_after: [u8; 32]) -> [u8; 32] {
     // ABI encode
-    let encoded = CommitmentABI {
+    let encoded: Vec<u8> = CommitmentABI {
         depositSuccessHeight: deposit_success_height,
         blockHeight: block_height,
         stateRootBefore: FixedBytes::from(state_root_before),
@@ -88,16 +99,14 @@ fn keccak256_for_commitment(deposit_success_height: u64, block_height: u64, stat
     println!("commitment state_root_after: 0x{}", hex::encode(&state_root_after));
 
 
-
     println!("commitment encoded: 0x{}", hex::encode(&encoded));
-
 
     // Keccak256 hash
     let mut hasher = Keccak::v256();
     let mut output = [0u8; 32];
     hasher.update(&encoded);
     hasher.finalize(&mut output);
-    println!("block_witness.commitment: {}", hex::encode(output));
+    println!("commitment: {}", hex::encode(&output));
 
     output
 }
@@ -130,15 +139,21 @@ fn compare(vec: [u8; 32], arr: [u8; 32]) -> bool {
     arr == vec
 }
 
-fn generate_leaf_hash(address: Address, balances: Vec<BalanceABI>, positions: Vec<PositionABI>) -> [u8; 32] {
+fn generate_leaf_hash(mut address: Address, balances: Vec<BalanceABI>, positions: Vec<PositionABI>) -> [u8; 32] {
     // ABI encode
-    let encoded = UserDataABI { userAddress: address, balances, positions }.abi_encode();
+    // address = address!("1111111111111111111111111111111111111111");
+
+    let encoded: Vec<u8> = UserDataABI { address, balances, positions }.abi_encode();
+    println!("generate_leaf_hash userAddress: 0x{}", hex::encode(&address));
+
+    println!("generate_leaf_hash encoded: 0x{}", hex::encode(&encoded));
 
     // Keccak256 hash
     let mut hasher = Keccak::v256();
     let mut output = [0u8; 32];
     hasher.update(&encoded);
     hasher.finalize(&mut output);
+    println!("generate_leaf_hashr: {:?}", hex::encode(&output));
 
     output
 }
@@ -151,7 +166,13 @@ fn verify_sparse_merkle_root(
 ) -> bool {
     let mut current_hash = leaf_hash;
     //todo
-    let path = leaf_id_to_path(account_id, 32);
+    let path = leaf_id_to_path(account_id);
+    println!("path: {:?}", path);
+
+
+    for merkle_proof in merkle_proofs {
+        println!("verify_sparse_merkle_root encoded: 0x{}", hex::encode(&merkle_proof));
+    }
 
     for (proof_hash, is_right) in merkle_proofs.iter().zip(path.iter()) {
         current_hash = if *is_right {
@@ -161,10 +182,15 @@ fn verify_sparse_merkle_root(
         };
     }
 
+    println!("verify_sparse_merkle_root current_hash {:?},state_root {:?}", current_hash, state_root);
+
     current_hash == state_root
 }
 
 fn hash_node(left: &[u8; 32], right: &[u8; 32]) -> [u8; 32] {
+    println!("left encoded: 0x{}", hex::encode(&left));
+    println!("right encoded: 0x{}", hex::encode(&right));
+
     let mut hasher = Keccak::v256();
     let mut output = [0u8; 32];
     hasher.update(left);
@@ -173,14 +199,45 @@ fn hash_node(left: &[u8; 32], right: &[u8; 32]) -> [u8; 32] {
     output
 }
 
-fn leaf_id_to_path(leaf_id: i64, tree_height: u32) -> Vec<bool> {
-    let mut path = Vec::new();
-    for i in 0..tree_height {
-        path.push((leaf_id & (1 << i)) != 0);
+fn leaf_id_to_path(key: i64) -> Vec<bool> {
+    let mut path = Vec::with_capacity(ACCOUNT_MERKLE_LEVELS);
+    let mut depth: u8 = 4;
+    for i in 0..(ACCOUNT_MERKLE_LEVELS / 4) as usize {
+        let path_id = key >> (ACCOUNT_MERKLE_LEVELS as usize - (i + 1) * 4);
+        let nibble = path_id & 0x000000000000000f;
+
+        if i > 0 {
+            // ignore the root node
+            path.push(((path_id / 16 % 2) as i32) != 0);
+        }
+
+        let mut index = 0;
+        for j in 0..3 {
+            // nibble / 8
+            // nibble / 4
+            // nibble / 2
+            let inc = (nibble / (1 << (3 - j))) as i32;
+            path.push((inc % 2) != 0);
+            index += 1 << (j + 1);
+        }
+
+        depth += 4;
     }
-    path.reverse(); // 从根到叶子
+    path.push(((key % 2) as i32) != 0);
+    path.reverse();
     path
 }
+
+// fn leaf_id_to_path(leaf_id: i64) -> Vec<bool> {
+//     let mut path = Vec::new();
+//     for i in 0..ACCOUNT_MERKLE_LEVELS {
+//         path.push((leaf_id & (1 << i)) != 0);
+//     }
+//     path.reverse(); // 从根到叶子
+//
+//
+//     path
+// }
 
 
 /// Loads an ELF file from the specified path.

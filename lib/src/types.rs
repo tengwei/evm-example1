@@ -13,11 +13,11 @@ pub struct BlockWitnessCircuit {
     pub block_height: u64,
     #[serde(rename = "userDataDeltaCircuitList")]
     pub user_data_delta_circuit_list: Vec<UserDataDeltaCircuit>,
-    #[serde(rename = "commitment", with = "serde_bytes")]
+    #[serde(rename = "commitment", deserialize_with = "custom_base64_decode")]
     pub commitment: Vec<u8>,
-    #[serde(rename = "stateRootBefore", with = "serde_bytes")]
+    #[serde(rename = "stateRootBefore", deserialize_with = "custom_base64_decode")]
     pub state_root_before: Vec<u8>,
-    #[serde(rename = "stateRootAfter", with = "serde_bytes")]
+    #[serde(rename = "stateRootAfter", deserialize_with = "custom_base64_decode")]
     pub state_root_after: Vec<u8>,
     #[serde(rename = "depositSuccessHeight")]
     pub deposit_success_height: u64,
@@ -31,9 +31,9 @@ pub struct UserDataDeltaCircuit {
     pub address_before: String,
     #[serde(rename = "addressAfter")]
     pub address_after: String,
-    #[serde(rename = "stateRootBefore", with = "serde_bytes")]
+    #[serde(rename = "stateRootBefore", deserialize_with = "custom_base64_decode")]
     pub state_root_before: Vec<u8>,
-    #[serde(rename = "stateRootAfter", with = "serde_bytes")]
+    #[serde(rename = "stateRootAfter", deserialize_with = "custom_base64_decode")]
     pub state_root_after: Vec<u8>,
     #[serde(rename = "balancesBefore")]
     pub balances_before: Vec<Balance>,
@@ -92,9 +92,9 @@ pub struct PositionItem {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Example {
-    #[serde(rename = "stateRootBefore", with = "serde_bytes")]
+    #[serde(rename = "stateRootBefore", deserialize_with = "custom_base64_decode")]
     pub state_root_before: Vec<u8>, // 自动解码 Base64 字符串
-    #[serde(rename = "stateRootAfter", with = "serde_bytes")]
+    #[serde(rename = "stateRootAfter", deserialize_with = "custom_base64_decode")]
     pub state_root_after: Vec<u8>,  // 自动解码 Base64 字符串
 }
 
@@ -203,4 +203,14 @@ impl From<BlockWitnessCircuit> for BlockWitnessProofInput {
             deposit_success_height:circuit.deposit_success_height
         }
     }
+}
+
+pub fn custom_base64_decode<'de, D>(deserializer: D) -> Result<Vec<u8>, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    let encoded: String = Deserialize::deserialize(deserializer)?;
+    base64::engine::general_purpose::STANDARD
+        .decode(&encoded)
+        .map_err(serde::de::Error::custom)
 }

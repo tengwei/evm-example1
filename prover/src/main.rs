@@ -4,6 +4,8 @@ use std::{env, fs};
 use alloy::hex;
 use alloy_sol_types::SolValue;
 use fibonacci_lib::types::BlockWitnessCircuit;
+use fibonacci_lib::types::custom_base64_decode;
+
 use fibonacci_lib::proof_input::BlockWitnessProofInput;
 use alloy_sol_types::{sol};
 use serde::Serialize;
@@ -46,7 +48,7 @@ fn main() {
     println!("parsed_data state_root_after: 0x{}", hex::encode(&parsed_data.state_root_after));
 
 
-    let  proof_input: BlockWitnessProofInput = parsed_data.into();
+    let proof_input: BlockWitnessProofInput = parsed_data.into();
 
     verify(&proof_input);
 
@@ -73,9 +75,6 @@ fn main() {
     // 反序列化为结构体
     let deserialized: BlockWitnessProofInput = serde_json::from_str(&*serialized).expect("反序列化失败");
     println!("deserialized.block_height: {:?}", deserialized.user_data_delta_circuit_list[1].balances_after[0].balance);
-
-
-
 
 
     let user_info = UserInfo {
@@ -124,8 +123,14 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
+    use alloy_primitives::{Address, FixedBytes, Signed, I256};
+    use base64::Engine;
+    use base64::engine::general_purpose;
+    use serde::Deserialize;
     use super::*;
     use serde_json;
+    use fibonacci_lib::proof_input::{BalanceABI, PositionABI};
+    use fibonacci_lib::UserInfo1;
 
     #[test]
     fn test_block_witness_proof_input_serialization() {
@@ -171,4 +176,126 @@ mod tests {
 
         assert_eq!(output.len(), 32);
     }
+
+
+    fn decode_base64(input: &str) -> Result<Vec<u8>, String> {
+        general_purpose::STANDARD
+            .decode(input)
+            .map_err(|e| format!("Base64 解码失败: {}", e))
+    }
+
+    #[test]
+    fn test_base64() {
+        let base64_string = "VYrZAbnvvGnRk4iu5IcIzaFqFkt5kRT0n7Zj//fYU3s="; // 示例 Base64 字符串
+        match decode_base64(base64_string) {
+            Ok(decoded) => {
+                println!("解码结果: {:?}", decoded);
+                println!("Keccak: 0x{}", hex::encode(&decoded));
+            }
+            Err(err) => println!("{}", err),
+        }
+    }
+
+    #[test]
+    fn test_serde_bytes() {
+        #[derive(Serialize, Deserialize, Debug)]
+        struct Example {
+            #[serde(with = "serde_bytes")]
+            data: Vec<u8>,
+        }
+        // let example = Example {
+        //     data: vec![1, 2, 3, 4, 5],
+        // };
+
+        let json_data = r#"{
+    "data": "VYrZAbnvvGnRk4iu5IcIzaFqFkt5kRT0n7Zj//fYU3s="}"#;
+
+        // 序列化为 JSON
+        // let serialized = serde_json::to_string(&json_data).unwrap();
+        // println!("Serialized: {}", serialized);
+
+        // 反序列化为结构体
+        let deserialized: Example = serde_json::from_str(&json_data).unwrap();
+        println!("Deserialized: {:?}", hex::encode(&deserialized.data));
+
+    }
+
+    #[test]
+    fn test_custom_base64_decode() {
+        #[derive(Serialize, Deserialize, Debug)]
+        struct Example {
+            #[serde(deserialize_with = "custom_base64_decode")]
+            data: Vec<u8>,
+        }
+        let json_data = r#"{
+        "data": "VYrZAbnvvGnRk4iu5IcIzaFqFkt5kRT0n7Zj//fYU3s="
+    }"#;
+
+        let deserialized: Example = serde_json::from_str(json_data).expect("反序列化失败");
+
+        println!("解码后的数据: {:?}", deserialized.data);
+        println!("十六进制表示: 0x{}", alloy::hex::encode(&deserialized.data));
+    }
+
+    #[test]
+    fn test_keccak_hex_data() {
+        // 输入的十六进制数据
+        let hex_data = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000c00000000000000000000000000000000000000000000000000000000000000020558ad901b9efbc69d19388aee48708cda16a164b799114f49fb663fff7d8537b0000000000000000000000000000000000000000000000000000000000000020fe009b1873f0e65fa7bf8663b82a3ba4ed5429908f379d8403fb4059f3ebbe60";
+
+        // 将十六进制字符串转换为字节数组
+        let data = hex::decode(hex_data).expect("十六进制解码失败");
+
+        // 初始化 Keccak-256 哈希计算器
+        let mut hasher = Keccak::v256();
+        let mut output = [0u8; 32];
+
+        // 更新哈希计算器并计算哈希值
+        hasher.update(&data);
+        hasher.finalize(&mut output);
+
+        // 打印结果
+        println!("Keccak-256 哈希值: 0x{}", hex::encode(output));
+    }
+
+    #[test]
+    fn test_user_info_abi_encoding1() {
+        // let user_info = UserInfo1 {
+        //     addr1: "0x1111111111111111111111111111111111111111".parse().unwrap(),
+        //     balances: vec![],
+        //     positions: vec![],
+        // };
+
+        let user_info = UserInfo1 {
+            addr1: "0x1111111111111111111111111111111111111111".parse::<Address>().unwrap(),
+            balances: vec![
+                BalanceABI {
+                    assetName: FixedBytes::from([0u8; 32]),
+                    balance: Signed::<256, 4>::ZERO,
+                    maxWithdrawAmount: Signed::<256, 4>::ZERO,
+                },
+            ],
+            positions: vec![
+                PositionABI {
+                    symbolName: FixedBytes::from([0u8; 32]),
+                    positionItems: vec![],
+                },
+            ],
+        };
+
+        // 测试 ABI 编码
+        let encoded: Vec<u8> = user_info.abi_encode();
+        assert!(!encoded.is_empty());
+        println!("encoded: 0x{}", hex::encode(&encoded));
+
+
+        // 测试 Keccak 哈希计算
+        let mut hasher = Keccak::v256();
+        let mut output = [0u8; 32];
+        hasher.update(&encoded);
+        hasher.finalize(&mut output);
+        println!("Keccak: 0x{}", hex::encode(&output));
+
+        assert_eq!(output.len(), 32);
+    }
+
 }
