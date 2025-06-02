@@ -67,14 +67,7 @@ sol! {
     }
 }
 
-sol! {
-    struct CommitmentABI {
-        uint64 depositSuccessHeight;
-        uint64 blockHeight;
-        bytes32 stateRootBefore;
-        bytes32 stateRootAfter;
-    }
-}
+
 
 fn deserialize_i256<'de, D>(deserializer: D) -> Result<I256, D::Error>
 where

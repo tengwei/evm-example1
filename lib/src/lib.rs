@@ -10,15 +10,26 @@ use alloy_primitives::{address, Address, FixedBytes, I256};
 use alloy_sol_types::{sol, SolValue};
 use serde::{Deserialize, Deserializer, Serialize};
 use tiny_keccak::{Hasher, Keccak};
-use crate::proof_input::{BalanceABI, BlockWitnessProofInput, CommitmentABI, PositionABI, UserDataABI};
+use crate::proof_input::{BalanceABI, BlockWitnessProofInput, PositionABI, UserDataABI};
 
 const ACCOUNT_MERKLE_LEVELS: usize = 32;
+// sol! {
+//     /// The public values encoded as a struct that can be easily deserialized inside Solidity.
+//     struct PublicValuesStruct {
+//         uint32 n;
+//         uint32 a;
+//         uint32 b;
+//     }
+// }
+
 sol! {
-    /// The public values encoded as a struct that can be easily deserialized inside Solidity.
+    //     /// The public values encoded as a struct that can be easily deserialized inside Solidity.
+
     struct PublicValuesStruct {
-        uint32 n;
-        uint32 a;
-        uint32 b;
+        uint64 depositSuccessHeight;
+        uint64 blockHeight;
+        bytes32 stateRootBefore;
+        bytes32 stateRootAfter;
     }
 }
 
@@ -88,7 +99,7 @@ pub fn verify(block_witness: &BlockWitnessProofInput) -> () {
 
 fn keccak256_for_commitment(deposit_success_height: u64, block_height: u64, state_root_before: [u8; 32], state_root_after: [u8; 32]) -> [u8; 32] {
     // ABI encode
-    let encoded: Vec<u8> = CommitmentABI {
+    let encoded: Vec<u8> = PublicValuesStruct {
         depositSuccessHeight: deposit_success_height,
         blockHeight: block_height,
         stateRootBefore: FixedBytes::from(state_root_before),

@@ -60,13 +60,13 @@ fn main() {
     //     state_root_after: [0u8; 32],
     // };
 
-//     let json_data = r#"{
-//     "block_height": 123,
-//     "user_data_delta_circuit_list": [],
-//     "commitment": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-//     "state_root_before": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-//     "state_root_after": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-// }"#;
+    //     let json_data = r#"{
+    //     "block_height": 123,
+    //     "user_data_delta_circuit_list": [],
+    //     "commitment": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //     "state_root_before": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //     "state_root_after": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    // }"#;
 
     // 序列化为 JSON 字符串
     let serialized = serde_json::to_vec(&proof_input).expect("序列化失败");
@@ -99,12 +99,10 @@ fn main() {
     // println!("Keccak: 0x{}", hex::encode(&output));
     println!("stdin_builder.write_slice");
 
-    stdin_builder.write_slice(&serialized.as_ref());
+    // stdin_builder.write_slice(&serialized.as_ref());
     // stdin_builder.write(&proof_input);
 
     // stdin_builder.write(&user_info);
-
-
 
 
     // 打印解析后的数据
@@ -122,7 +120,10 @@ fn main() {
 
     // Set up output path
     let current_dir = env::current_dir().expect("Failed to get current directory");
-    let output_path = current_dir.join("../contracts/test_data");
+    let output_path = current_dir.join(format!("{}{}", "../contracts/test_data/", proof_input.block_height));
+
+    fs::create_dir_all(&output_path).expect("Failed to create directory");
+
 
     // Set up groth16 verifier and generate pico proof
     // The first parameter `need_setup = true` ensures the Groth16 verifier is set up,
@@ -229,7 +230,6 @@ mod tests {
         // 反序列化为结构体
         let deserialized: Example = serde_json::from_str(&json_data).unwrap();
         println!("Deserialized: {:?}", hex::encode(&deserialized.data));
-
     }
 
     #[test]
@@ -309,5 +309,4 @@ mod tests {
 
         assert_eq!(output.len(), 32);
     }
-
 }

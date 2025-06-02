@@ -1,6 +1,8 @@
 #![no_main]
 
 pico_sdk::entrypoint!(main);
+
+use alloy_sol_types::private::FixedBytes;
 use alloy_sol_types::SolValue;
 use fibonacci_lib::proof_input::BlockWitnessProofInput;
 use fibonacci_lib::{verify, PublicValuesStruct, UserInfo};
@@ -18,7 +20,7 @@ pub fn main() {
     // let  proof_input: BlockWitnessProofInput = read_as();
     println!("proof_input_json start");
 
-    let proof_input_json=read_vec();
+    let proof_input_json = read_vec();
 
     println!("proof_input_json end");
 
@@ -40,9 +42,10 @@ pub fn main() {
 
     // Encode the result into ABI format
     let result = PublicValuesStruct {
-        n,
-        a: 0,
-        b: 0,
+        depositSuccessHeight: proof_input.deposit_success_height,
+        blockHeight: proof_input.block_height,
+        stateRootBefore: FixedBytes::from(proof_input.state_root_before),
+        stateRootAfter: FixedBytes::from(proof_input.state_root_after),
     };
     let encoded_bytes = result.abi_encode();
 
