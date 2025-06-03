@@ -10,9 +10,12 @@ use fibonacci_lib::proof_input::BlockWitnessProofInput;
 use alloy_sol_types::{sol};
 use serde::Serialize;
 use std::borrow::Borrow;
+use std::time::Instant;
 use tiny_keccak::{Hasher, Keccak};
 
 fn main() {
+    let start = Instant::now();
+
     // Initialize logger
     init_logger();
 
@@ -164,6 +167,12 @@ fn main() {
 
     // // Verify the public values
     // verify_public_values(&public_values);
+
+    let duration = start.elapsed();
+
+    println!("程序运行耗时: {:?}", duration);
+
+
 }
 
 /// Verifies that the computed Fibonacci values match the public values.
