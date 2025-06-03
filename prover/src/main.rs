@@ -10,9 +10,12 @@ use fibonacci_lib::proof_input::BlockWitnessProofInput;
 use alloy_sol_types::{sol};
 use serde::Serialize;
 use std::borrow::Borrow;
+use std::time::Instant;
 use tiny_keccak::{Hasher, Keccak};
 
 fn main() {
+    let start = Instant::now();
+
     // Initialize logger
     init_logger();
 
@@ -138,7 +141,7 @@ fn main() {
     // The first parameter `need_setup = true` ensures the Groth16 verifier is set up,
     // but this setup is required only once.
     client
-        .prove_evm(stdin_builder, true, output_path.clone(), "kb")
+        .prove_evm(stdin_builder, false, output_path.clone(), "kb")
         .expect("Failed to generate evm proof");
 
     // Generate proof
@@ -163,6 +166,12 @@ fn main() {
 
     // // Verify the public values
     // verify_public_values(&public_values);
+
+    let duration = start.elapsed();
+
+    println!("程序运行耗时: {:?}", duration);
+
+
 }
 
 /// Verifies that the computed Fibonacci values match the public values.
