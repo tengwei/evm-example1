@@ -44,10 +44,10 @@ pub fn main() {
         stateRootBefore: FixedBytes::from(proof_input.state_root_before),
         stateRootAfter: FixedBytes::from(proof_input.state_root_after),
     };
-    // let encoded_bytes = result.abi_encode();
+    let encoded_bytes = result.abi_encode();
 
-    // commit_bytes(&encoded_bytes);
+    commit_bytes(&encoded_bytes);
 
-    commit(&result);
+    // commit(&result);
 
 }

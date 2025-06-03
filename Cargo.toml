@@ -10,3 +10,5 @@ resolver = "2"
 alloy-sol-types ={version = "0.7.7"}
 alloy = "1.0.9"
 pico-sdk = { git = "https://github.com/brevis-network/pico" }
+[patch.crates-io]
+tiny-keccak = { git = "https://github.com/brevis-network/tiny-keccak.git", features = ["keccak"], tag = "pico-patch-v1.0.0-keccak-v2.0.2" }

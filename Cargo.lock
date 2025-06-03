@@ -6015,9 +6015,9 @@ dependencies = [
 [[package]]
 name = "tiny-keccak"
 version = "2.0.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2c9d3793400a45f954c52e73d068316d76b6f4e36977e3fcebb13a2721e80237"
+source = "git+https://github.com/brevis-network/tiny-keccak.git?tag=pico-patch-v1.0.0-keccak-v2.0.2#fe487503bf562dc1a67ec702b9935ff0699ea62b"
 dependencies = [
+ "cfg-if",
  "crunchy",
 ]
 
