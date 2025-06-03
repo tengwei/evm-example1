@@ -152,4 +152,8 @@ npx typechain --target ethers-v6 --out-dir typechain-types 'out/Matching.sol/*.j
 npx ts-node ./script/TestApproveAgent.ts
 ```
 
+# prover
+RUST_LOG=debug RUST_LOGGER=forest cargo run --release
+RUST_LOG=info cargo run --release
 
+# app
