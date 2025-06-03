@@ -34,9 +34,6 @@ pub fn main() {
 
     // let n: u32 = read_as();
 
-    let n: u32 = 0;
-
-
     // Compute Fibonacci values starting from `a` and `b`
     // let (a_result, b_result) = fibonacci(a, b, n);
 
