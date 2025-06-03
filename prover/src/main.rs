@@ -137,24 +137,24 @@ fn main() {
     // Set up groth16 verifier and generate pico proof
     // The first parameter `need_setup = true` ensures the Groth16 verifier is set up,
     // but this setup is required only once.
-    // client
-    //     .prove_evm(stdin_builder, false, output_path.clone(), "kb")
-    //     .expect("Failed to generate evm proof");
+    client
+        .prove_evm(stdin_builder, false, output_path.clone(), "kb")
+        .expect("Failed to generate evm proof");
 
     // Generate proof
-    let proof = client
-        .prove_fast(stdin_builder)
-        .expect("Failed to generate proof");
+    // let proof = client
+    //     .prove_fast(stdin_builder)
+    //     .expect("Failed to generate proof");
 
     // client
     //     .emulate(stdin_builder);
 
     // Decodes public values from the proof's public value stream.
-    let public_buffer = proof.pv_stream.unwrap();
+    // let public_buffer = proof.pv_stream.unwrap();
     //
     // // Deserialize public_buffer into PublicValuesStruct
-    let public_values: PublicValuesStruct =
-        bincode::deserialize(&public_buffer).expect("Failed to deserialize");
+    // let public_values: PublicValuesStruct =
+    //     bincode::deserialize(&public_buffer).expect("Failed to deserialize");
 
     // let public_values: PublicValuesStruct =
     //     serde_json::from_slice(&public_buffer).expect("Failed to deserialize");
@@ -162,7 +162,7 @@ fn main() {
     // let deserialized: Example = serde_json::from_str(json_data).expect("反序列化失败");
 
     // // Verify the public values
-    verify_public_values(&public_values);
+    // verify_public_values(&public_values);
 }
 
 /// Verifies that the computed Fibonacci values match the public values.

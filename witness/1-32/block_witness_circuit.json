@@ -1,0 +1,1289 @@
+{
+  "blockHeight": 1,
+  "userDataDeltaCircuitList": [
+    {
+      "accountId": 0,
+      "addressBefore": "0x0000000000000000000000000000000000000000",
+      "addressAfter": "",
+      "stateRootBefore": "XELZB8/XMgUsJsRvnB65B83lE01m1oS04iBkixRrogo=",
+      "stateRootAfter": "XELZB8/XMgUsJsRvnB65B83lE01m1oS04iBkixRrogo=",
+      "balancesBefore": [],
+      "balancesAfter": [],
+      "positionsBefore": [],
+      "positionsAfter": [],
+      "merkleProofsBefore": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "L56ZWo9Hp6cm2chCRTX8GRPf9gSDI6f5z3TFcJsE1N4=",
+        "hB/rJczGDd3hN5jWrcspSuvw7CUoC8qvv7c6xxNmK3Y=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ],
+      "merkleProofsAfter": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "L56ZWo9Hp6cm2chCRTX8GRPf9gSDI6f5z3TFcJsE1N4=",
+        "hB/rJczGDd3hN5jWrcspSuvw7CUoC8qvv7c6xxNmK3Y=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ]
+    },
+    {
+      "accountId": 1,
+      "addressBefore": "0x0000000000000000000000000000000000000000",
+      "addressAfter": "",
+      "stateRootBefore": "XELZB8/XMgUsJsRvnB65B83lE01m1oS04iBkixRrogo=",
+      "stateRootAfter": "LbeES5WFQC7OujCOa3lxHOPdVvBJImpCv2UIXHWviLc=",
+      "balancesBefore": [],
+      "balancesAfter": [
+        {
+          "assetName": "APG",
+          "balance": "97476550150000000000",
+          "withdrawAmount": "97476550150000000000"
+        },
+        {
+          "assetName": "APX",
+          "balance": "35372257192508920000000000",
+          "withdrawAmount": "35372257192508920000000000"
+        },
+        {
+          "assetName": "BABY",
+          "balance": "29326794056630000000000",
+          "withdrawAmount": "29326794056630000000000"
+        },
+        {
+          "assetName": "BANANA",
+          "balance": "1639865080350000000000",
+          "withdrawAmount": "1639865080350000000000"
+        },
+        {
+          "assetName": "BCH",
+          "balance": "1101123099760000000000",
+          "withdrawAmount": "1101123099760000000000"
+        },
+        {
+          "assetName": "BNB",
+          "balance": "1619008070000000000",
+          "withdrawAmount": "1619008070000000000"
+        },
+        {
+          "assetName": "BONUSUSD",
+          "balance": "100000000000000000000",
+          "withdrawAmount": "100000000000000000000"
+        },
+        {
+          "assetName": "BSW",
+          "balance": "11877598190000000000",
+          "withdrawAmount": "11877598190000000000"
+        },
+        {
+          "assetName": "BTC",
+          "balance": "11200000000000000000",
+          "withdrawAmount": "11200000000000000000"
+        },
+        {
+          "assetName": "BUSD",
+          "balance": "658819712908025490000000000",
+          "withdrawAmount": "658819712908025490000000000"
+        },
+        {
+          "assetName": "CAKE",
+          "balance": "84765793537080000000000",
+          "withdrawAmount": "84765793537080000000000"
+        },
+        {
+          "assetName": "EOS",
+          "balance": "1110005235190000000000",
+          "withdrawAmount": "1110005235190000000000"
+        },
+        {
+          "assetName": "ETH",
+          "balance": "4002589870000000000",
+          "withdrawAmount": "4002589870000000000"
+        },
+        {
+          "assetName": "KEEP2",
+          "balance": "2000000000000000000",
+          "withdrawAmount": "2000000000000000000"
+        },
+        {
+          "assetName": "LEOS",
+          "balance": "193979000000000000000000",
+          "withdrawAmount": "193979000000000000000000"
+        },
+        {
+          "assetName": "MDX",
+          "balance": "2378860031260000000000",
+          "withdrawAmount": "2378860031260000000000"
+        },
+        {
+          "assetName": "USDT",
+          "balance": "11383565271456388370000000000",
+          "withdrawAmount": "11383565271456388370000000000"
+        },
+        {
+          "assetName": "XRP",
+          "balance": "1664628400000000000",
+          "withdrawAmount": "1664628400000000000"
+        }
+      ],
+      "positionsBefore": [],
+      "positionsAfter": [],
+      "merkleProofsBefore": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "L56ZWo9Hp6cm2chCRTX8GRPf9gSDI6f5z3TFcJsE1N4=",
+        "hB/rJczGDd3hN5jWrcspSuvw7CUoC8qvv7c6xxNmK3Y=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ],
+      "merkleProofsAfter": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "L56ZWo9Hp6cm2chCRTX8GRPf9gSDI6f5z3TFcJsE1N4=",
+        "hB/rJczGDd3hN5jWrcspSuvw7CUoC8qvv7c6xxNmK3Y=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ]
+    },
+    {
+      "accountId": 2,
+      "addressBefore": "0x0000000000000000000000000000000000000000",
+      "addressAfter": "",
+      "stateRootBefore": "LbeES5WFQC7OujCOa3lxHOPdVvBJImpCv2UIXHWviLc=",
+      "stateRootAfter": "5mfUgEEiy2p5VYQyppaup8hJ+fse6/PnTz8Ro8wVG4o=",
+      "balancesBefore": [],
+      "balancesAfter": [],
+      "positionsBefore": [],
+      "positionsAfter": [
+        {
+          "symbolName": "1000LUNCBUSD",
+          "positionItems": [
+            {
+              "positionAmount": "-100000000000000000000",
+              "entryPrice": "393791300000000000",
+              "leverage": 20,
+              "unrealizedPnl": "30391954000000000000",
+              "returnOnEquity": "-67634046550000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "1000SHIBUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "-12000000000000000000",
+              "entryPrice": "56514000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "526366080000000000",
+              "returnOnEquity": "-69349067520000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "ADAUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "40000000000000000000",
+              "entryPrice": "2226212583333000000",
+              "leverage": 20,
+              "unrealizedPnl": "-61870754400000000000",
+              "returnOnEquity": "-45530448340000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "APTUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "-25000000000000000000",
+              "entryPrice": "7244520000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "63356379750000000000",
+              "returnOnEquity": "-10760563540000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "BTCBUSD",
+          "positionItems": [
+            {
+              "positionAmount": "8000000000000000",
+              "entryPrice": "48517240000000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-40951886020000000000",
+              "returnOnEquity": "-2359074500000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "CAKEUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "100000000000000000000",
+              "entryPrice": "6286670000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-399099606000000000000",
+              "returnOnEquity": "-34769711760000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "CRVUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "10000000000000000000",
+              "entryPrice": "3697000000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-30290154000000000000",
+              "returnOnEquity": "-90691174610000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "DARUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "100000000000000000000",
+              "entryPrice": "1796100000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-164172831000000000000",
+              "returnOnEquity": "-212698106750000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "EOSUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "-1307500000000000000000",
+              "entryPrice": "1112000000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "434212512750000000000",
+              "returnOnEquity": "-8516246110000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "ETHWUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "-100000000000000000000",
+              "entryPrice": "11245817000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "775383700000000000000",
+              "returnOnEquity": "-44409400970000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "FILUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "10000000000000000000",
+              "entryPrice": "22084000000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-195318471200000000000",
+              "returnOnEquity": "-153061732880000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "FTTUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "10000000000000000000",
+              "entryPrice": "43620200000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-404274983600000000000",
+              "returnOnEquity": "-253249460290000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "GALUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "110000000000000000000",
+              "entryPrice": "97390559090910000000",
+              "leverage": 20,
+              "unrealizedPnl": "-10391406901700000000000",
+              "returnOnEquity": "-646323016980000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "GMTUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "10000000000000000000",
+              "entryPrice": "995510000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-9464083700000000000",
+              "returnOnEquity": "-385489593720000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "IMXUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "100000000000000000000",
+              "entryPrice": "2564100000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-201429092000000000000",
+              "returnOnEquity": "-73272377380000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "IOSTUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "10000000000000000000000",
+              "entryPrice": "29677000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-262700900000000000000",
+              "returnOnEquity": "-154216518780000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "JASMYUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "100000000000000000000",
+              "entryPrice": "23893000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-845419000000000000",
+              "returnOnEquity": "-10951867400000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "LINAUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "1000000000000000000000",
+              "entryPrice": "28770000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-28684230000000000000",
+              "returnOnEquity": "-6688639384400000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "LINKUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "100000000000000000000",
+              "entryPrice": "13758000000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "17073293000000000000",
+              "returnOnEquity": "245152130000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "MANAUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "10000000000000000000",
+              "entryPrice": "2757600000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-24834077400000000000",
+              "returnOnEquity": "-181143533370000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "PEOPLEUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "1000000000000000000000",
+              "entryPrice": "55850000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-35980000000000000000",
+              "returnOnEquity": "-36215400100000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "SNXUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "100000000000000000000",
+              "entryPrice": "5352000000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-467846436000000000000",
+              "returnOnEquity": "-138922547880000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "XRPUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "95000000000000000000",
+              "entryPrice": "4173652761739000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-396290795864350000000000",
+              "returnOnEquity": "-38434441071820000000000"
+            }
+          ]
+        }
+      ],
+      "merkleProofsBefore": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "JkdXLiAEx9MashgOay89hp4kn2KZ28GePUROqysac60=",
+        "hB/rJczGDd3hN5jWrcspSuvw7CUoC8qvv7c6xxNmK3Y=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ],
+      "merkleProofsAfter": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "JkdXLiAEx9MashgOay89hp4kn2KZ28GePUROqysac60=",
+        "hB/rJczGDd3hN5jWrcspSuvw7CUoC8qvv7c6xxNmK3Y=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ]
+    },
+    {
+      "accountId": 3,
+      "addressBefore": "0x0000000000000000000000000000000000000000",
+      "addressAfter": "",
+      "stateRootBefore": "5mfUgEEiy2p5VYQyppaup8hJ+fse6/PnTz8Ro8wVG4o=",
+      "stateRootAfter": "uzjWNeKOpWbtMMsGoeR1Ke7cMd7pfHpXvzQRTn8hIns=",
+      "balancesBefore": [],
+      "balancesAfter": [],
+      "positionsBefore": [],
+      "positionsAfter": [
+        {
+          "symbolName": "ADAUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "112000000000000000000",
+              "entryPrice": "1825114285714000000",
+              "leverage": 20,
+              "unrealizedPnl": "-128315102720000000000",
+              "returnOnEquity": "-33723780970000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "BNBUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "25300000000000000000",
+              "entryPrice": "624155454545600000000",
+              "leverage": 20,
+              "unrealizedPnl": "865723507630000000000",
+              "returnOnEquity": "1039480050000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "DOGEUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "5000000000000000000",
+              "entryPrice": "231230000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-191435100000000000",
+              "returnOnEquity": "-3968739360000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "ETHUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "240000000000000000000",
+              "entryPrice": "2750922218750000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-50461204252800000000000",
+              "returnOnEquity": "-1655116550000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "XRPUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "15000000000000000000",
+              "entryPrice": "1054000000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "16750500000000000000",
+              "returnOnEquity": "10288846910000000000"
+            }
+          ]
+        }
+      ],
+      "merkleProofsBefore": [
+        "Le4jMP+6m1l/ZcPk6A5t+AXRy5Q7D2WFb876XyIFs+4=",
+        "JkdXLiAEx9MashgOay89hp4kn2KZ28GePUROqysac60=",
+        "hB/rJczGDd3hN5jWrcspSuvw7CUoC8qvv7c6xxNmK3Y=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ],
+      "merkleProofsAfter": [
+        "Le4jMP+6m1l/ZcPk6A5t+AXRy5Q7D2WFb876XyIFs+4=",
+        "JkdXLiAEx9MashgOay89hp4kn2KZ28GePUROqysac60=",
+        "hB/rJczGDd3hN5jWrcspSuvw7CUoC8qvv7c6xxNmK3Y=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ]
+    },
+    {
+      "accountId": 4,
+      "addressBefore": "0x0000000000000000000000000000000000000000",
+      "addressAfter": "",
+      "stateRootBefore": "uzjWNeKOpWbtMMsGoeR1Ke7cMd7pfHpXvzQRTn8hIns=",
+      "stateRootAfter": "uzjWNeKOpWbtMMsGoeR1Ke7cMd7pfHpXvzQRTn8hIns=",
+      "balancesBefore": [],
+      "balancesAfter": [],
+      "positionsBefore": [],
+      "positionsAfter": [],
+      "merkleProofsBefore": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "L56ZWo9Hp6cm2chCRTX8GRPf9gSDI6f5z3TFcJsE1N4=",
+        "H9MJ/399oMCz8hobxKRQQNw0DpLY+DOBdYTF2d/TpYQ=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ],
+      "merkleProofsAfter": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "L56ZWo9Hp6cm2chCRTX8GRPf9gSDI6f5z3TFcJsE1N4=",
+        "H9MJ/399oMCz8hobxKRQQNw0DpLY+DOBdYTF2d/TpYQ=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ]
+    },
+    {
+      "accountId": 5,
+      "addressBefore": "0x0000000000000000000000000000000000000000",
+      "addressAfter": "",
+      "stateRootBefore": "uzjWNeKOpWbtMMsGoeR1Ke7cMd7pfHpXvzQRTn8hIns=",
+      "stateRootAfter": "HxnuBi1WHmZ5WvZWj8Mr+O+6aLnPRNQMKGtGkveSPuQ=",
+      "balancesBefore": [],
+      "balancesAfter": [],
+      "positionsBefore": [],
+      "positionsAfter": [
+        {
+          "symbolName": "ADAUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "5000000000000000000",
+              "entryPrice": "1684000000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-5022781400000000000",
+              "returnOnEquity": "-29569962910000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "BCHUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "-1000000000000000000",
+              "entryPrice": "540100000000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "127193533970000000000",
+              "returnOnEquity": "-6160888450000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "EOSUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "-95000000000000000000",
+              "entryPrice": "4000000000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "305908901500000000000",
+              "returnOnEquity": "-82576424880000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "FTTUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "-10000000000000000000",
+              "entryPrice": "2482000000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-7107016400000000000",
+              "returnOnEquity": "4452039180000000000"
+            }
+          ]
+        },
+        {
+          "symbolName": "XRPUSDT",
+          "positionItems": [
+            {
+              "positionAmount": "-100000000000000000000",
+              "entryPrice": "800000000000000000",
+              "leverage": 20,
+              "unrealizedPnl": "-137070000000000000000",
+              "returnOnEquity": "12629105810000000000"
+            }
+          ]
+        }
+      ],
+      "merkleProofsBefore": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "L56ZWo9Hp6cm2chCRTX8GRPf9gSDI6f5z3TFcJsE1N4=",
+        "H9MJ/399oMCz8hobxKRQQNw0DpLY+DOBdYTF2d/TpYQ=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ],
+      "merkleProofsAfter": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "L56ZWo9Hp6cm2chCRTX8GRPf9gSDI6f5z3TFcJsE1N4=",
+        "H9MJ/399oMCz8hobxKRQQNw0DpLY+DOBdYTF2d/TpYQ=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ]
+    },
+    {
+      "accountId": 6,
+      "addressBefore": "0x0000000000000000000000000000000000000000",
+      "addressAfter": "",
+      "stateRootBefore": "HxnuBi1WHmZ5WvZWj8Mr+O+6aLnPRNQMKGtGkveSPuQ=",
+      "stateRootAfter": "HxnuBi1WHmZ5WvZWj8Mr+O+6aLnPRNQMKGtGkveSPuQ=",
+      "balancesBefore": [],
+      "balancesAfter": [],
+      "positionsBefore": [],
+      "positionsAfter": [],
+      "merkleProofsBefore": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "ktYYlKvrnTS7Kv+h3ClN+ApAt+gWlDq6SvRP/N01zoQ=",
+        "H9MJ/399oMCz8hobxKRQQNw0DpLY+DOBdYTF2d/TpYQ=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ],
+      "merkleProofsAfter": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "ktYYlKvrnTS7Kv+h3ClN+ApAt+gWlDq6SvRP/N01zoQ=",
+        "H9MJ/399oMCz8hobxKRQQNw0DpLY+DOBdYTF2d/TpYQ=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ]
+    },
+    {
+      "accountId": 7,
+      "addressBefore": "0x0000000000000000000000000000000000000000",
+      "addressAfter": "",
+      "stateRootBefore": "HxnuBi1WHmZ5WvZWj8Mr+O+6aLnPRNQMKGtGkveSPuQ=",
+      "stateRootAfter": "HxnuBi1WHmZ5WvZWj8Mr+O+6aLnPRNQMKGtGkveSPuQ=",
+      "balancesBefore": [],
+      "balancesAfter": [],
+      "positionsBefore": [],
+      "positionsAfter": [],
+      "merkleProofsBefore": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "ktYYlKvrnTS7Kv+h3ClN+ApAt+gWlDq6SvRP/N01zoQ=",
+        "H9MJ/399oMCz8hobxKRQQNw0DpLY+DOBdYTF2d/TpYQ=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ],
+      "merkleProofsAfter": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "ktYYlKvrnTS7Kv+h3ClN+ApAt+gWlDq6SvRP/N01zoQ=",
+        "H9MJ/399oMCz8hobxKRQQNw0DpLY+DOBdYTF2d/TpYQ=",
+        "Vff7UtE7+WzVNU4u7x+SVGJ2sDHLeft8pMjgl2bMcGk=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ]
+    },
+    {
+      "accountId": 8,
+      "addressBefore": "0x0000000000000000000000000000000000000000",
+      "addressAfter": "",
+      "stateRootBefore": "HxnuBi1WHmZ5WvZWj8Mr+O+6aLnPRNQMKGtGkveSPuQ=",
+      "stateRootAfter": "HxnuBi1WHmZ5WvZWj8Mr+O+6aLnPRNQMKGtGkveSPuQ=",
+      "balancesBefore": [],
+      "balancesAfter": [],
+      "positionsBefore": [],
+      "positionsAfter": [],
+      "merkleProofsBefore": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "L56ZWo9Hp6cm2chCRTX8GRPf9gSDI6f5z3TFcJsE1N4=",
+        "hB/rJczGDd3hN5jWrcspSuvw7CUoC8qvv7c6xxNmK3Y=",
+        "GOEBhNNvOZpfP7Cid/SQcpc42a/fnFOSvbsOCC2uybw=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ],
+      "merkleProofsAfter": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "L56ZWo9Hp6cm2chCRTX8GRPf9gSDI6f5z3TFcJsE1N4=",
+        "hB/rJczGDd3hN5jWrcspSuvw7CUoC8qvv7c6xxNmK3Y=",
+        "GOEBhNNvOZpfP7Cid/SQcpc42a/fnFOSvbsOCC2uybw=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ]
+    },
+    {
+      "accountId": 9,
+      "addressBefore": "0x0000000000000000000000000000000000000000",
+      "addressAfter": "",
+      "stateRootBefore": "HxnuBi1WHmZ5WvZWj8Mr+O+6aLnPRNQMKGtGkveSPuQ=",
+      "stateRootAfter": "HxnuBi1WHmZ5WvZWj8Mr+O+6aLnPRNQMKGtGkveSPuQ=",
+      "balancesBefore": [],
+      "balancesAfter": [],
+      "positionsBefore": [],
+      "positionsAfter": [],
+      "merkleProofsBefore": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "L56ZWo9Hp6cm2chCRTX8GRPf9gSDI6f5z3TFcJsE1N4=",
+        "hB/rJczGDd3hN5jWrcspSuvw7CUoC8qvv7c6xxNmK3Y=",
+        "GOEBhNNvOZpfP7Cid/SQcpc42a/fnFOSvbsOCC2uybw=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ],
+      "merkleProofsAfter": [
+        "29Qx7qodarpgnk2GNJn9mHv/ytwGSUon7WvCA516QG4=",
+        "L56ZWo9Hp6cm2chCRTX8GRPf9gSDI6f5z3TFcJsE1N4=",
+        "hB/rJczGDd3hN5jWrcspSuvw7CUoC8qvv7c6xxNmK3Y=",
+        "GOEBhNNvOZpfP7Cid/SQcpc42a/fnFOSvbsOCC2uybw=",
+        "G0KWU0wrlt43aqqbqwIE1GATnaYBVr2oR3285VKUu7U=",
+        "StRRm3StUlq96/2ITkMCOjv7mmprZKWUwVQkNMO6Mns=",
+        "q92cm8Urlfpk7z7Ol2JKEvR6N/wl/f6BWK/0HN981gs=",
+        "+hbnT98/xwIsZpWEeUTv5ai3+ZV6+pBVEsgRl9cuags=",
+        "olWsWISu+QdZ01aUamCx0TgVadB8xWgQiAG50FlglYo=",
+        "DAoy5oU3q18FmBDz1CIuRz357X+NryhgFwBmLTO5JHc=",
+        "5HztTZWPH82HA+e49FXNhCUVWMb6PUWqeES8mxrriO8=",
+        "yQ9/EhSkSmz/3tRijhk7+4sNEKaLFr8TgistPpl6+2c=",
+        "UqaeOZZoPbw2BwrnjAv7VT7pUct1e07KJit0+FCu4ss=",
+        "sp9yk1H6ZdcH/05PbJJ7328Dqhq1TXeZvgxnBVvRN94=",
+        "IDQ5Lpj3wfjbOGW+CvGCEfeJadY5qjclIshGmqgIZuw=",
+        "B5PJBjIpwiwt0hA6GdQfSC25TVAYDufwTbWyj5xoqAE=",
+        "OSTNXGcTemsK1EksU+JPJEGlfGuwPCuWeU0NVzv889U=",
+        "bEJXFmRsDQ4A/guzLoz7/JDI98f5gR8pxhEYC1QhAII=",
+        "ALy5ZpP2NIP24bM/KU9ZiCnXvNnuUH90pXIa7KkJft4=",
+        "5auZkiehTA3/shMcdh+6vzBvNdJdyHmCHCsnE5mOEJo=",
+        "b+pRA22VvdrCqOK6rxDHVnbfFnUOnxy7sZxxP+BLhC8=",
+        "lN2U4rcb0qxede2ajkNW6kaE9HVPdJPXYg2vy7ZW/N8=",
+        "96L1cJ0vglCErpT7hqGDr3HfYOym2VezoWDvhc0T0GY=",
+        "8THQ63obpg1mxpMKB7pJDnxNwKkduj5CcD5wWWqx44U=",
+        "xtTjREk3hkPUJo3LiIjAr+lVJW2kcs/z5cjVsFWi5+Q=",
+        "OZym+fuDK4kb62lY20coGvpsliBXaDYEPxHeuwWrGXY=",
+        "1Ju+eZ7qx+Gf/i58Znv+uj9k/tKpnnkGKDi7mUc+89Y=",
+        "0szQsqgoVgpE5zgCMRmyMXoCEeATBC2+QarfNV8sRy0=",
+        "znGTstyxkBjMRa0w6MD+Rpjr2QIM/mHNHrpe7HTbJTM=",
+        "THkXDsvWpRyjwhfwm3pz4mIcxXftGe80YX911wzKONY=",
+        "VnSV4044rmkh+V5jblKNGx0Gi1bN5JnTxzZDsE/9c0c=",
+        "h4T+J2cBiETAq27Mz2Rl8lpDDz6MOdMjWU7JTrqJOHI="
+      ]
+    }
+  ],
+  "commitment": "mE8h/jpWb38+8IoSf8aKyZ+kn++eeagcm6XPZ4+cwrU=",
+  "stateRootBefore": "XELZB8/XMgUsJsRvnB65B83lE01m1oS04iBkixRrogo=",
+  "stateRootAfter": "HxnuBi1WHmZ5WvZWj8Mr+O+6aLnPRNQMKGtGkveSPuQ=",
+  "depositSuccessHeight": 0
+}

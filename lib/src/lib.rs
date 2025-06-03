@@ -11,7 +11,7 @@ use serde::{Deserialize, Deserializer, Serialize};
 use tiny_keccak::{Hasher, Keccak};
 use crate::proof_input::{BalanceABI, BlockWitnessProofInput, PositionABI, UserDataABI};
 
-const ACCOUNT_MERKLE_LEVELS: usize = 32;
+const ACCOUNT_MERKLE_LEVELS: usize = 24;
 // sol! {
 //     /// The public values encoded as a struct that can be easily deserialized inside Solidity.
 //     struct PublicValuesStruct {
@@ -163,7 +163,7 @@ fn generate_leaf_hash(mut address: Address, balances: Vec<BalanceABI>, positions
     let mut output = [0u8; 32];
     hasher.update(&encoded);
     hasher.finalize(&mut output);
-    println!("generate_leaf_hashr: {:?}", hex::encode(&output));
+    // println!("generate_leaf_hashr: {:?}", hex::encode(&output));
 
     output
 }
@@ -177,12 +177,12 @@ fn verify_sparse_merkle_root(
     let mut current_hash = leaf_hash;
     //todo
     let path = leaf_id_to_path(account_id);
-    println!("path: {:?}", path);
+    // println!("path: {:?}", path);
 
 
-    for merkle_proof in merkle_proofs {
-        println!("verify_sparse_merkle_root encoded: 0x{}", hex::encode(&merkle_proof));
-    }
+    // for merkle_proof in merkle_proofs {
+    //     println!("verify_sparse_merkle_root encoded: 0x{}", hex::encode(&merkle_proof));
+    // }
 
     for (proof_hash, is_right) in merkle_proofs.iter().zip(path.iter()) {
         current_hash = if *is_right {
@@ -192,14 +192,14 @@ fn verify_sparse_merkle_root(
         };
     }
 
-    println!("verify_sparse_merkle_root current_hash {:?},state_root {:?}", current_hash, state_root);
+    // println!("verify_sparse_merkle_root current_hash {:?},state_root {:?}", current_hash, state_root);
 
     current_hash == state_root
 }
 
 fn hash_node(left: &[u8; 32], right: &[u8; 32]) -> [u8; 32] {
-    println!("left encoded: 0x{}", hex::encode(&left));
-    println!("right encoded: 0x{}", hex::encode(&right));
+    // println!("left encoded: 0x{}", hex::encode(&left));
+    // println!("right encoded: 0x{}", hex::encode(&right));
 
     let mut hasher = Keccak::v256();
     let mut output = [0u8; 32];
