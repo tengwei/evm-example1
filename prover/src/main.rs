@@ -50,6 +50,7 @@ fn main() {
 
     let proof_input: BlockWitnessProofInput = parsed_data.into();
 
+
     println!("parsed_data stateRootBefore: 0x{}", hex::encode(&proof_input.state_root_before));
     println!("parsed_data stateRootBefore: 0x{}", hex::encode(&proof_input.state_root_before));
     println!("parsed_data state_root_after: 0x{}", hex::encode(&proof_input.state_root_after));

@@ -25,10 +25,14 @@ pub struct UserDataDeltaProofInput {
     pub state_root_before: [u8; 32],
     // #[serde(deserialize_with = "deserialize_fixed_array")]
     pub state_root_after: [u8; 32],
-    pub balances_before: Vec<BalanceABI>,
-    pub balances_after: Vec<BalanceABI>,
-    pub positions_before: Vec<PositionABI>,
-    pub positions_after: Vec<PositionABI>,
+
+    pub abi_encode_before:[u8; 32],
+    pub abi_encode_after:[u8; 32],
+
+    // pub balances_before: Vec<BalanceABI>,
+    // pub balances_after: Vec<BalanceABI>,
+    // pub positions_before: Vec<PositionABI>,
+    // pub positions_after: Vec<PositionABI>,
     pub merkle_proofs_before: [[u8; 32]; ACCOUNT_MERKLE_LEVELS],
     pub merkle_proofs_after: [[u8; 32]; ACCOUNT_MERKLE_LEVELS],
 }

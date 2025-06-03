@@ -1,10 +1,11 @@
 use std::str::FromStr;
 use alloy_primitives::{Address, FixedBytes};
+use alloy_sol_types::SolValue;
 use base64::{engine::general_purpose, Engine as _};
 use serde::de::Deserializer;
 use serde::ser::Serializer;
 use serde::{Deserialize, Serialize};
-use crate::proof_input::{BalanceABI, BlockWitnessProofInput, PositionABI, PositionItemABI, UserDataDeltaProofInput};
+use crate::proof_input::{BalanceABI, BlockWitnessProofInput, PositionABI, PositionItemABI, UserDataABI, UserDataDeltaProofInput};
 use crate::{vec_to_array, vec_to_bytes32};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -173,26 +174,44 @@ impl From<BlockWitnessCircuit> for BlockWitnessProofInput {
                     address_after: Address::from_str(&delta.address_after).unwrap_or_default(),
                     state_root_before: vec_to_bytes32(delta.state_root_before),
                     state_root_after: vec_to_bytes32(delta.state_root_after),
-                    balances_before: delta
+                    abi_encode_before:vec_to_bytes32(UserDataABI { address:Address::from_str(&delta.address_before).unwrap_or_default(), balances:delta
                         .balances_before
                         .into_iter()
                         .map(|balance| balance.into())
-                        .collect(),
-                    balances_after: delta
-                        .balances_after
-                        .into_iter()
-                        .map(|balance| balance.into())
-                        .collect(),
-                    positions_before: delta
+                        .collect(), positions:delta
                         .positions_before
                         .into_iter()
                         .map(|position| position.into())
-                        .collect(),
-                    positions_after: delta
+                        .collect() }.abi_encode()),
+                    abi_encode_after:vec_to_bytes32(UserDataABI { address:Address::from_str(&delta.address_after).unwrap_or_default(), balances:delta
+                        .balances_after
+                        .into_iter()
+                        .map(|balance| balance.into())
+                        .collect(), positions:delta
                         .positions_after
                         .into_iter()
                         .map(|position| position.into())
-                        .collect(),
+                        .collect() }.abi_encode()),
+                    // balances_before: delta
+                    //     .balances_before
+                    //     .into_iter()
+                    //     .map(|balance| balance.into())
+                    //     .collect(),
+                    // balances_after: delta
+                    //     .balances_after
+                    //     .into_iter()
+                    //     .map(|balance| balance.into())
+                    //     .collect(),
+                    // positions_before: delta
+                    //     .positions_before
+                    //     .into_iter()
+                    //     .map(|position| position.into())
+                    //     .collect(),
+                    // positions_after: delta
+                    //     .positions_after
+                    //     .into_iter()
+                    //     .map(|position| position.into())
+                    //     .collect(),
                     merkle_proofs_before: vec_to_array(delta.merkle_proofs_before),
                     merkle_proofs_after: vec_to_array(delta.merkle_proofs_after),
                 })
