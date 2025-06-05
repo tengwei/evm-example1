@@ -80,13 +80,20 @@ pub fn verify(block_witness: &BlockWitnessProofInput) -> () {
             // println!("State Root Before: {:?}", user_data.state_root_before);
             // println!("State Root After: {:?}", user_data.state_root_after);
 
-            let hash_before = generate_leaf_hash(user_data.abi_encode_before);
-            let is_valid_before = verify_sparse_merkle_root(user_data.account_id, hash_before, user_data.merkle_proofs_before, user_data.state_root_before);
-            // assert!(is_valid_before, "Mismatch State Root!");
 
-            let hash_after = generate_leaf_hash(user_data.abi_encode_after);
-            let is_valid_after = verify_sparse_merkle_root(user_data.account_id, hash_after, user_data.merkle_proofs_after, user_data.state_root_after);
-            // assert!(is_valid_after, "Mismatch State Root!");
+            let path = leaf_id_to_path(user_data.account_id);
+
+
+            let hash_before = generate_leaf_hash(user_data.abi_encode_before.as_slice());
+            // let is_valid_before = verify_sparse_merkle_root(user_data.leaf_path.as_slice().try_into().expect("Vec<bool> 的长度必须为 24"), hash_before, user_data.merkle_proofs_before, user_data.state_root_before);
+            let is_valid_before = verify_sparse_merkle_root(user_data.account_id,path.to_vec(), hash_before, user_data.merkle_proofs_before, user_data.state_root_before);
+
+            assert!(is_valid_before, "Mismatch State Root!");
+
+            let hash_after = generate_leaf_hash(user_data.abi_encode_after.as_slice());
+            // let is_valid_after = verify_sparse_merkle_root(user_data.leaf_path.as_slice().try_into().expect("Vec<bool> 的长度必须为 24"), hash_after, user_data.merkle_proofs_after, user_data.state_root_after);
+            let is_valid_after = verify_sparse_merkle_root(user_data.account_id,path.to_vec(), hash_after, user_data.merkle_proofs_after, user_data.state_root_after);
+            assert!(is_valid_after, "Mismatch State Root!");
             println!("verify success Account ID: {}", user_data.account_id);
 
             //todo
@@ -151,7 +158,7 @@ fn compare(vec: [u8; 32], arr: [u8; 32]) -> bool {
     arr == vec
 }
 
-pub fn generate_leaf_hash( encoded: [u8; 32]) -> [u8; 32] {
+pub fn generate_leaf_hash(encoded: &[u8]) -> [u8; 32] {
     // ABI encode
     // let encoded: Vec<u8> = UserDataABI { address, balances, positions }.abi_encode();
     // println!("generate_leaf_hash userAddress: 0x{}", hex::encode(&address));
@@ -168,15 +175,45 @@ pub fn generate_leaf_hash( encoded: [u8; 32]) -> [u8; 32] {
     output
 }
 
+// fn verify_sparse_merkle_root(
+//     leaf_path: [bool; ACCOUNT_MERKLE_LEVELS],
+//     leaf_hash: [u8; 32],
+//     merkle_proofs: [[u8; 32]; ACCOUNT_MERKLE_LEVELS],
+//     state_root: [u8; 32],
+// ) -> bool {
+//     let mut current_hash = leaf_hash;
+//     //
+//     // let path = leaf_id_to_path(account_id);
+//     // println!("path: {:?}", path);
+//
+//
+//     // for merkle_proof in merkle_proofs {
+//     //     println!("verify_sparse_merkle_root encoded: 0x{}", hex::encode(&merkle_proof));
+//     // }
+//
+//     for (proof_hash, is_right) in merkle_proofs.iter().zip(leaf_path) {
+//         current_hash = if is_right {
+//             hash_node(proof_hash, &current_hash)
+//         } else {
+//             hash_node(&current_hash, proof_hash)
+//         };
+//     }
+//
+//     // println!("verify_sparse_merkle_root current_hash {:?},state_root {:?}", current_hash, state_root);
+//
+//     current_hash == state_root
+// }
+
 fn verify_sparse_merkle_root(
     account_id: i64,
+    path:Vec<bool>,
     leaf_hash: [u8; 32],
     merkle_proofs: [[u8; 32]; ACCOUNT_MERKLE_LEVELS],
     state_root: [u8; 32],
 ) -> bool {
     let mut current_hash = leaf_hash;
     //todo
-    let path = leaf_id_to_path(account_id);
+    //let path = leaf_id_to_path(account_id);
     // println!("path: {:?}", path);
 
 
