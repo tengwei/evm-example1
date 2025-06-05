@@ -41,7 +41,7 @@ fn main() {
 
 
     // 读取JSON文件内容
-    let file_content = fs::read_to_string("../witness/1/block_witness_circuit.json").expect("无法读取文件");
+    let file_content = fs::read_to_string("../witness/1-24-3000user/block_witness_circuit.json").expect("无法读取文件");
 
     // 解析JSON内容为结构体
     let parsed_data: BlockWitnessCircuit =
