@@ -140,9 +140,11 @@ fn main() {
     // Set up groth16 verifier and generate pico proof
     // The first parameter `need_setup = true` ensures the Groth16 verifier is set up,
     // but this setup is required only once.
-    client
-        .prove_evm(stdin_builder, false, output_path.clone(), "kb")
+    client.prove_evm(stdin_builder, false, output_path.clone(), "kb")
         .expect("Failed to generate evm proof");
+
+    // client.prove(stdin_builder)
+    //     .expect("Failed to generate evm proof");
 
     // Generate proof
     // let proof = client
