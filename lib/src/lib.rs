@@ -153,7 +153,7 @@ fn compare(vec: [u8; 32], arr: [u8; 32]) -> bool {
 }
 
 fn generate_leaf_hash(mut address: Address, balances: Vec<BalanceABI>, positions: Vec<PositionABI>) -> [u8; 32] {
-    // ABI encode
+    // ABI encode 在prover 计算  这个分支final-abiencode-in-prove 已有做测试
     let encoded: Vec<u8> = UserDataABI { address, balances, positions }.abi_encode();
     // println!("generate_leaf_hash userAddress: 0x{}", hex::encode(&address));
 
