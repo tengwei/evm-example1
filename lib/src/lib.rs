@@ -79,13 +79,14 @@ pub fn verify(block_witness: &BlockWitnessProofInput) -> () {
             // println!("Address After: {:?}", user_data.address_after);
             // println!("State Root Before: {:?}", user_data.state_root_before);
             // println!("State Root After: {:?}", user_data.state_root_after);
+            let path = leaf_id_to_path(user_data.account_id);
 
             let hash_before = generate_leaf_hash(user_data.address_before, user_data.clone().balances_before, user_data.clone().positions_before);
-            let is_valid_before = verify_sparse_merkle_root(user_data.account_id, hash_before, user_data.merkle_proofs_before, user_data.state_root_before);
+            let is_valid_before = verify_sparse_merkle_root(path.to_vec(), hash_before, user_data.merkle_proofs_before, user_data.state_root_before);
             assert!(is_valid_before, "Mismatch State Root!");
 
             let hash_after = generate_leaf_hash(user_data.address_after, user_data.clone().balances_after, user_data.clone().positions_after);
-            let is_valid_after = verify_sparse_merkle_root(user_data.account_id, hash_after, user_data.merkle_proofs_after, user_data.state_root_after);
+            let is_valid_after = verify_sparse_merkle_root(path.to_vec(), hash_after, user_data.merkle_proofs_after, user_data.state_root_after);
             assert!(is_valid_after, "Mismatch State Root!");
             println!("verify success Account ID: {}", user_data.account_id);
 
@@ -169,14 +170,13 @@ fn generate_leaf_hash(mut address: Address, balances: Vec<BalanceABI>, positions
 }
 
 fn verify_sparse_merkle_root(
-    account_id: i64,
+    path: Vec<bool>,
     leaf_hash: [u8; 32],
     merkle_proofs: [[u8; 32]; ACCOUNT_MERKLE_LEVELS],
     state_root: [u8; 32],
 ) -> bool {
     let mut current_hash = leaf_hash;
     //todo
-    let path = leaf_id_to_path(account_id);
     // println!("path: {:?}", path);
 
 
