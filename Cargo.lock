@@ -4433,7 +4433,7 @@ dependencies = [
 [[package]]
 name = "pico-derive"
 version = "0.1.0"
-source = "git+https://github.com/brevis-network/pico#cb82bc4e824d602b918dbac10e1bb823a2b80459"
+source = "git+https://github.com/brevis-network/pico?branch=temp-prove-evm#2ffadd3e79da3d181c7fe66c6126423ca415a3b8"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -4443,7 +4443,7 @@ dependencies = [
 [[package]]
 name = "pico-patch-libs"
 version = "1.1.3"
-source = "git+https://github.com/brevis-network/pico#cb82bc4e824d602b918dbac10e1bb823a2b80459"
+source = "git+https://github.com/brevis-network/pico?branch=temp-prove-evm#2ffadd3e79da3d181c7fe66c6126423ca415a3b8"
 dependencies = [
  "bincode",
  "serde",
@@ -4452,7 +4452,7 @@ dependencies = [
 [[package]]
 name = "pico-sdk"
 version = "1.1.3"
-source = "git+https://github.com/brevis-network/pico#cb82bc4e824d602b918dbac10e1bb823a2b80459"
+source = "git+https://github.com/brevis-network/pico?branch=temp-prove-evm#2ffadd3e79da3d181c7fe66c6126423ca415a3b8"
 dependencies = [
  "anyhow",
  "bincode",
@@ -4478,7 +4478,7 @@ dependencies = [
 [[package]]
 name = "pico-vm"
 version = "1.1.3"
-source = "git+https://github.com/brevis-network/pico#cb82bc4e824d602b918dbac10e1bb823a2b80459"
+source = "git+https://github.com/brevis-network/pico?branch=temp-prove-evm#2ffadd3e79da3d181c7fe66c6126423ca415a3b8"
 dependencies = [
  "anyhow",
  "arrayref",

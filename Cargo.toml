@@ -9,6 +9,12 @@ resolver = "2"
 [workspace.dependencies]
 alloy-sol-types ={version = "0.7.7"}
 alloy = "1.0.9"
-pico-sdk = { git = "https://github.com/brevis-network/pico" }
+pico-sdk = { git = "https://github.com/brevis-network/pico", branch="temp-prove-evm" }
 [patch.crates-io]
 tiny-keccak = { git = "https://github.com/brevis-network/tiny-keccak.git", features = ["keccak"], tag = "pico-patch-v1.0.0-keccak-v2.0.2" }
+
+[profile.perf]
+inherits = "release"
+opt-level = 3
+lto = true
+codegen-units = 1

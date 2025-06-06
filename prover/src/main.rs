@@ -13,14 +13,14 @@ use std::borrow::Borrow;
 use std::time::Instant;
 use tiny_keccak::{Hasher, Keccak};
 
-fn main() {
+fn main() {    
     let start = Instant::now();
 
     // Initialize logger
     init_logger();
 
     // Load the ELF file
-    let elf = load_elf("../app/elf/riscv32im-pico-zkvm-elf");
+    let elf = load_elf("../app/elf/aster");
 
     // Initialize the prover client
     let client = DefaultProverClient::new(&elf);
@@ -41,7 +41,7 @@ fn main() {
 
 
     // 读取JSON文件内容
-    let file_content = fs::read_to_string("../witness/1-24-3000user/block_witness_circuit.json").expect("无法读取文件");
+    let file_content = fs::read_to_string("../witness/1-24-100user/block_witness_circuit.json").expect("无法读取文件");
 
     // 解析JSON内容为结构体
     let parsed_data: BlockWitnessCircuit =
@@ -140,8 +140,18 @@ fn main() {
     // Set up groth16 verifier and generate pico proof
     // The first parameter `need_setup = true` ensures the Groth16 verifier is set up,
     // but this setup is required only once.
-    client.prove_evm(stdin_builder, false, output_path.clone(), "kb")
+
+    
+    // prove方法，比prove_evm只少做最后的groth16证明（这步4-20秒耗时），其余完全一致
+    // prove_evm需要根据参数做一次性的setup，这里暂且省略
+    let prove_start = Instant::now();
+    
+    client.prove_evm(stdin_builder, true, output_path.clone(), "kb")
         .expect("Failed to generate evm proof");
+    // client.prove(stdin_builder).expect("Failed to generate evm proof");
+    let prove_duration = prove_start.elapsed();
+
+    println!("证明耗时: {:?}", prove_duration);
 
     // client.prove(stdin_builder)
     //     .expect("Failed to generate evm proof");
