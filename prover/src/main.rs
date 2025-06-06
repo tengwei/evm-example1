@@ -146,7 +146,7 @@ fn main() {
     // prove_evm需要根据参数做一次性的setup，这里暂且省略
     let prove_start = Instant::now();
     
-    client.prove_evm(stdin_builder, true, output_path.clone(), "kb")
+    client.prove_evm(stdin_builder, false, output_path.clone(), "kb")
         .expect("Failed to generate evm proof");
     // client.prove(stdin_builder).expect("Failed to generate evm proof");
     let prove_duration = prove_start.elapsed();
